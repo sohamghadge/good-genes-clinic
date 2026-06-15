@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Good Genes Clinic | Premium Aesthetic Dermatology</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  html, body { height: auto !important; min-height: 100%; }
+  #dc-root, #dc-root > .sc-host { height: auto !important; min-height: 100%; }
+  body { margin: 0; background-color: #FDFCFB; background-image: url('assets/bg.png'); background-size: cover; background-position: center; background-attachment: fixed; color: #1C1A17; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  ::selection { background: #1C1A17; color: #FDFCFB; }
+  ::-moz-selection { background: #1C1A17; color: #FDFCFB; }
+  input::placeholder { color: rgba(28,26,23,0.30); }
+  @keyframes ggCaret { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .carousel-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    padding: 60px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .carousel-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-track {
+    display: inline-block;
+  }
+  .carousel-item {
+    display: inline-block;
+    width: clamp(280px, 40vw, 500px);
+    height: clamp(340px, 50vw, 600px);
+    margin-right: clamp(16px, 3vw, 40px);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(28,26,23,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .carousel-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(28,26,23,0.15);
+  }
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .carousel-item:hover img {
+    transform: scale(1.04);
+  }
+  .carousel-label {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1C1A17;
+  }
+  @media (max-width: 800px) {
+    #philosophy {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 40px !important;
+    }
+    #philosophy > div:first-child {
+      padding-bottom: 0 !important;
+    }
+    #philosophy > div:nth-child(2) {
+      position: static !important;
+      top: auto !important;
+      margin: 0 auto;
+    }
+  }
+  @keyframes waPop {
+    0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes reelScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .reel-carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .reel-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .reel-track {
+    display: flex; gap: 20px;
+    width: max-content;
+  }
+  .reel-item {
+    flex: 0 0 320px; height: 560px;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .reel-item:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+  @media (max-width: 600px) { .reel-item { flex: 0 0 280px; height: 500px; } }
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" id="top" style="background:transparent; color:#1C1A17; font-family:'EB Garamond', Georgia, serif; overflow-x:clip; position:relative;">
+
+  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(14px); -webkit-backdrop-filter:saturate(120%) blur(14px); background:rgba(255,255,255,0.75); border-bottom:1px solid rgba(28,26,23,0.12);">
+    <div style="max-width:1440px; margin:0 auto; padding:0 clamp(24px,6vw,120px); min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <a href="#top" style="text-decoration:none; display:flex; align-items:center;">
+        <img src="assets/logo.png" alt="Good Genes Clinic" style="height:72px; mix-blend-mode: multiply;" />
+      </a>
+
+      <div style="display:flex; align-items:center; gap:clamp(20px,3vw,46px); flex-wrap:wrap; justify-content:center;">
+        <a data-nav="clinic" href="#clinic" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">The Clinic<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a data-nav="curations" href="#curations" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Treatments<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a data-nav="reviews" href="#reviews" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Experiences<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a data-nav="atelier" href="#atelier" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Contact<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+      </div>
+
+      <a href="#atelier" style="text-decoration:none; color:#1C1A17; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; white-space:nowrap; opacity:0.85; transition:opacity .4s ease;" style-hover="opacity:1;">Private Inquiry&nbsp;<span style="display:inline-block; transition:transform .4s ease;">&#8594;</span></a>
+    </div>
+  </nav>
+
+  <section data-screen-label="Hero" style="max-width:1440px; margin:0 auto; padding:clamp(48px,9vw,120px) clamp(24px,6vw,120px) clamp(80px,12vw,160px);">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:24px; flex-wrap:wrap; padding-bottom:clamp(48px,9vw,120px);">
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.34em; text-transform:uppercase; color:rgba(28,26,23,0.55);">Mumbai's Premier Clinic</span>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.40);">Khar West &middot; Mumbai &middot; Est. 2024</span>
+    </div>
+
+    <div style="display:flex; gap:clamp(40px,7vw,110px); align-items:flex-end; flex-wrap:wrap;">
+      <div style="flex:1 1 540px; min-width:min(100%,320px);">
+        <h1 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(44px,8.2vw,108px); line-height:0.98; letter-spacing:-0.022em;">Welcome to<br><span style="font-style:italic; font-weight:400;">Good Genes</span><br>Dermatology.</h1>
+
+        <p data-reveal style="margin:clamp(36px,5vw,56px) 0 0; max-width:46ch; font-size:clamp(17px,1.35vw,21px); line-height:1.66; color:rgba(28,26,23,0.72); font-weight:400;">Good Genes is a private, single-doctor boutique clinic curated exclusively for those who demand rigorous medical intelligence over commercial trends.</p>
+
+        <div data-reveal style="display:flex; align-items:center; gap:28px; margin-top:clamp(40px,5vw,60px); flex-wrap:wrap;">
+          <a href="#atelier" style="text-decoration:none; color:#1C1A17; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; border-bottom:1px solid #1C1A17; padding-bottom:6px; transition:opacity .4s ease;" style-hover="opacity:0.55;">Request an Invitation &#8594;</a>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.2em; color:rgba(28,26,23,0.38);">/ 01 &mdash; Good Genes</span>
+        </div>
+      </div>
+
+      <figure data-reveal style="flex:0 1 400px; min-width:min(100%,280px); margin:0;">
+        <div style="position:relative; width:100%; aspect-ratio:3/4.05; border:1px solid rgba(28,26,23,0.15); overflow:hidden; background:#EEE9D8;">
+          <img src="assets/carousel-1.png" alt="Clinic Interior" loading="eager" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:contrast(1.02);" />
+        </div>
+        <figcaption style="display:flex; justify-content:space-between; gap:12px; margin-top:14px; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:rgba(28,26,23,0.45);"><span>Fig. 01 &mdash; The Clinic</span><span>Khar West</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="featured-in" style="border-top:1px solid rgba(28,26,23,0.15); padding:40px 0; overflow:hidden; background:rgba(255,255,255,0.4);">
+    <div style="max-width:1440px; margin:0 auto; padding:0 clamp(24px,6vw,120px); display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+      <span style="font-family:'Didot', 'Bodoni MT', 'Times New Roman', serif; font-size:42px; font-weight:normal; letter-spacing:1px; color:#000;">VOGUE</span>
+      <span style="font-family:'Helvetica Neue', Arial, sans-serif; font-size:34px; font-weight:900; letter-spacing:-2px; color:#e0006a; text-transform:uppercase; transform:scaleY(1.1);">COSMOPOLITAN</span>
+      <span style="font-family:'Arial Black', 'Helvetica Neue', sans-serif; font-size:34px; font-weight:900; letter-spacing:-1px; color:#000;">Mumbai<span style="color:#e21f26;">Mirror</span></span>
+      <span style="font-family:'Georgia', serif; font-size:36px; font-weight:bold; letter-spacing:-1.5px; color:#000;">hindustan<span style="color:#0094d4;">times</span></span>
+    </div>
+  </section>
+
+  <section id="clinic" data-screen-label="Atmosphere" style="width:100%; overflow:hidden; border-top:1px solid rgba(28,26,23,0.15); border-bottom:1px solid rgba(28,26,23,0.15);">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:24px; flex-wrap:wrap; max-width:1440px; margin:0 auto; padding:clamp(56px,8vw,96px) clamp(24px,6vw,120px) 0;">
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(28,26,23,0.5);">&mdash; The Atelier, in Light</span>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:rgba(28,26,23,0.4);">Khar West &middot; Mumbai</span>
+    </div>
+    <div data-reveal class="carousel-wrapper">
+      <div class="carousel-track">
+        <!-- Original set -->
+        <div class="carousel-item">
+          <img src="assets/carousel-1.png" alt="Clinic Interior" />
+          <div class="carousel-label">Fig. 02 &mdash; Hallway</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carousel-2.png" alt="Reception" />
+          <div class="carousel-label">Fig. 03 &mdash; Reception</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carousel-3.png" alt="Laser Room" />
+          <div class="carousel-label">Fig. 04 &mdash; Procedure</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carousel-4.png" alt="Doctor Desk" />
+          <div class="carousel-label">Fig. 05 &mdash; Consultation</div>
+        </div>
+        <!-- Duplicated set for seamless loop -->
+        <div class="carousel-item">
+          <img src="assets/carousel-1.png" alt="Clinic Interior" />
+          <div class="carousel-label">Fig. 02 &mdash; Hallway</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carousel-2.png" alt="Reception" />
+          <div class="carousel-label">Fig. 03 &mdash; Reception</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carousel-3.png" alt="Laser Room" />
+          <div class="carousel-label">Fig. 04 &mdash; Procedure</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carousel-4.png" alt="Doctor Desk" />
+          <div class="carousel-label">Fig. 05 &mdash; Consultation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="intro-video" style="max-width:1440px; margin:0 auto; padding:clamp(80px,12vw,160px) clamp(24px,6vw,120px);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(40px,6vw,80px);">
+      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">The <span style="font-style:italic;">Philosophy</span></h2>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Introductory Film</span>
+    </div>
+    <div data-reveal style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; box-shadow:0 20px 60px rgba(28,26,23,0.1); overflow:hidden;">
+      <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/HfywsI_gh2A?rel=0&modestbranding=1" title="Dr Dipti Mathias" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+
+  <section id="doctor" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
+      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">The <span style="font-style:italic;">Doctor</span></h2>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Dr. Dipti Mathias</span>
+    </div>
+    
+    <div data-reveal style="display:flex; gap:clamp(40px,8vw,80px); align-items:center; flex-wrap:wrap;">
+      <div style="flex:1 1 400px; min-width:300px;">
+        <div style="position:relative; width:100%; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.1);">
+          <img src="assets/dr_dipti.jpg" style="width:100%; height:auto; display:block;" alt="Dr. Dipti Mathias" />
+        </div>
+      </div>
+      <div style="flex:1.2 1 400px;">
+        <h3 style="margin:0 0 24px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(28px,3.5vw,42px); font-weight:400; line-height:1.2;">Consulting Aesthetic Dermatologist & Trichologist</h3>
+        <p style="margin:0 0 24px; font-size:clamp(16px,1.2vw,19px); line-height:1.7; color:rgba(28,26,23,0.75);">With over seven years of experience, Dr. Mathias has built an acclaimed expertise in facial aesthetics, youth restoration, and hair regrowth therapies. Her dedication to enhancing natural architectural beauty and her commitment to meticulous patient care have made her a sought-after specialist in her field.</p>
+        
+        <h4 style="margin:40px 0 16px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.5);">Educational Background</h4>
+        <ul style="margin:0; padding:0; list-style:none; font-size:clamp(16px,1.2vw,19px); line-height:1.7; color:rgba(28,26,23,0.75);">
+          <li style="margin-bottom:12px; position:relative; padding-left:16px;"><span style="position:absolute; left:0; top:10px; width:4px; height:4px; background:#1C1A17; border-radius:50%;"></span><strong style="color:#1C1A17; font-weight:500;">MBBS</strong> &mdash; Fr. Muller Medical College (2011 &ndash; 2017)</li>
+          <li style="position:relative; padding-left:16px;"><span style="position:absolute; left:0; top:10px; width:4px; height:4px; background:#1C1A17; border-radius:50%;"></span><strong style="color:#1C1A17; font-weight:500;">MD Dermatology</strong> &mdash; Padmashree Dr. D. Y. Patil Medical College, Pune (2018 &ndash; 2021)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="curations" data-screen-label="Modalities" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
+      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Clinical <span style="font-style:italic;">Curations</span></h2>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Modalities // Protocols</span>
+    </div>
+
+    <div data-reveal>
+      <sc-for list="{{ modalities }}" as="m" hint-placeholder-count="3">
+        <div onClick="{{ m.onClick }}" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+          <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">{{ m.numeral }}</span>
+            <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">{{ m.title }}</h3>
+            <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+              <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+              <span data-vbar="{{ $index }}" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            </span>
+          </div>
+          <div data-mbody="{{ $index }}" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+            <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">{{ m.summary }}</p>
+          </div>
+        </div>
+      </sc-for>
+      <div style="border-top:1px solid rgba(28,26,23,0.15);"></div>
+    </div>
+  </section>
+
+
+  <section id="before-after" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
+      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Clinical <span style="font-style:italic;">Efficacy</span></h2>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Before &amp; After Samples</span>
+    </div>
+    
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:60px;">
+      <!-- Pair 1 -->
+      <div style="display:flex; gap:16px; flex-direction:column;">
+        <div style="display:flex; gap:16px;">
+          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
+             <img src="assets/before_face.png" style="width:100%; height:100%; object-fit:cover;" alt="Before" />
+             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">BEFORE</span>
+          </div>
+          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
+             <img src="assets/after_face.png" style="width:100%; height:100%; object-fit:cover;" alt="After" />
+             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">AFTER</span>
+          </div>
+        </div>
+        <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-style:italic; text-align:center;">Case 01 &mdash; Facial Contouring</p>
+      </div>
+      <!-- Pair 2 -->
+      <div style="display:flex; gap:16px; flex-direction:column;">
+        <div style="display:flex; gap:16px;">
+          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
+             <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover; filter:saturate(0.8);" alt="Before" />
+             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">BEFORE</span>
+          </div>
+          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
+             <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover; filter:saturate(1.2) brightness(1.1);" alt="After" />
+             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">AFTER</span>
+          </div>
+        </div>
+        <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-style:italic; text-align:center;">Case 02 &mdash; Hair Regrowth</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="reviews" data-screen-label="Reviews" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px); background:rgba(255,255,255,0.4);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
+      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Patient <span style="font-style:italic;">Experiences</span></h2>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Google Reviews</span>
+    </div>
+
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-bottom:80px;">
+      <!-- Google Review 1 -->
+      <div style="background:#fff; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); font-family:Roboto, Arial, sans-serif; display:flex; flex-direction:column; gap:12px; border:1px solid #e0e0e0;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div style="width:40px; height:40px; border-radius:50%; background:#4285F4; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:500;">A</div>
+            <div>
+              <div style="font-size:14px; font-weight:500; color:#202124;">Anjali D.</div>
+              <div style="font-size:12px; color:#70757a;">Local Guide &middot; 12 reviews</div>
+            </div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/><path fill="none" d="M1 1h22v22H1z"/></svg>
+        </div>
+        <div style="display:flex; gap:2px; color:#fbbc04; font-size:16px;">
+          &#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:#70757a; font-size:12px; margin-left:8px; align-self:center;">2 months ago</span>
+        </div>
+        <div style="font-size:14px; color:#3c4043; line-height:1.5;">
+          I have sat in many chairs across many cities. This is the first where the doctor seemed more interested in the decade ahead than the appointment in front of her. Dr. Dipti is incredibly meticulous.
+        </div>
+      </div>
+
+      <!-- Google Review 2 -->
+      <div style="background:#fff; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); font-family:Roboto, Arial, sans-serif; display:flex; flex-direction:column; gap:12px; border:1px solid #e0e0e0;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div style="width:40px; height:40px; border-radius:50%; background:#0F9D58; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:500;">S</div>
+            <div>
+              <div style="font-size:14px; font-weight:500; color:#202124;">Sneha K.</div>
+              <div style="font-size:12px; color:#70757a;">Local Guide &middot; 4 reviews</div>
+            </div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/><path fill="none" d="M1 1h22v22H1z"/></svg>
+        </div>
+        <div style="display:flex; gap:2px; color:#fbbc04; font-size:16px;">
+          &#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:#70757a; font-size:12px; margin-left:8px; align-self:center;">5 months ago</span>
+        </div>
+        <div style="font-size:14px; color:#3c4043; line-height:1.5;">
+          Six months on, no one can name what changed — only that I look unmistakably, calmly like myself. That, I am told, was the entire point of the contouring.
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(32px,5vw,60px);">
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Practo Verified</span>
+    </div>
+
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
+      <!-- Practo Review 1 -->
+      <div style="background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:20px; font-family:'Proxima Nova', Helvetica, Arial, sans-serif; display:flex; flex-direction:column; gap:12px; box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <div style="font-size:16px; font-weight:bold; color:#414146;">Rahul M.</div>
+            <div style="font-size:12px; color:#787887; margin-top:4px;">Visited for Acne / Pimples Treatment</div>
+          </div>
+          <div style="font-family:Arial, sans-serif; font-size:18px; font-weight:bold; color:#28328c; display:flex; align-items:center; gap:4px;">
+            <div style="width:12px; height:12px; background:#28328c; border-radius:50%; display:inline-block;"></div>
+            practo
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div style="background:#14A06B; color:#fff; font-size:12px; font-weight:bold; padding:2px 6px; border-radius:4px; display:inline-block;">&#9733; 5.0</div>
+          <span style="font-size:12px; color:#14A06B; display:flex; align-items:center; gap:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#14A06B"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            Verified Patient
+          </span>
+          <span style="font-size:12px; color:#787887; margin-left:auto;">1 month ago</span>
+        </div>
+        <div style="font-size:14px; color:#414146; line-height:1.5;">
+          Nothing here is sold to you. A protocol is proposed, explained, and then quietly, exactly executed. The restraint is the luxury. Highly recommend Dr. Dipti.
+        </div>
+      </div>
+
+      <!-- Practo Review 2 -->
+      <div style="background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:20px; font-family:'Proxima Nova', Helvetica, Arial, sans-serif; display:flex; flex-direction:column; gap:12px; box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <div style="font-size:16px; font-weight:bold; color:#414146;">Priya S.</div>
+            <div style="font-size:12px; color:#787887; margin-top:4px;">Visited for Hair Regrowth</div>
+          </div>
+          <div style="font-family:Arial, sans-serif; font-size:18px; font-weight:bold; color:#28328c; display:flex; align-items:center; gap:4px;">
+            <div style="width:12px; height:12px; background:#28328c; border-radius:50%; display:inline-block;"></div>
+            practo
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div style="background:#14A06B; color:#fff; font-size:12px; font-weight:bold; padding:2px 6px; border-radius:4px; display:inline-block;">&#9733; 5.0</div>
+          <span style="font-size:12px; color:#14A06B; display:flex; align-items:center; gap:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#14A06B"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            Verified Patient
+          </span>
+          <span style="font-size:12px; color:#787887; margin-left:auto;">3 months ago</span>
+        </div>
+        <div style="font-size:14px; color:#414146; line-height:1.5;">
+          The GFC protocol completely changed my hair density. Dr. Mathias is incredibly knowledgeable and never rushes the process.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="chronicles" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px); position:relative; overflow:hidden;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px); position:relative; z-index:10;">
+      <div>
+        <span data-reveal style="display:block; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:12px;">Chronicles</span>
+        <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(40px,5vw,72px); line-height:1.0; letter-spacing:-0.018em;">The <span style="font-style:italic;">Patina</span> of Trust</h2>
+      </div>
+      <div data-chronicle-counter data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; color:rgba(28,26,23,0.45);">01 / 03</div>
+    </div>
+
+    <div data-reveal style="position:relative; min-height:420px;">
+      <div data-cslide="0" style="position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; justify-content:space-between; gap:clamp(32px,5vw,60px); flex-wrap:wrap; opacity:1; visibility:visible; transition:opacity 0.8s ease, visibility 0.8s ease;">
+        <div style="flex:1 1 400px; max-width:700px;">
+          <p style="margin:0 0 40px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(24px,3vw,46px); line-height:1.4; font-style:italic; font-weight:300; color:#1C1A17;">&ldquo;I have sat in many chairs across many cities. This is the first where the doctor seemed more interested in the decade ahead than the appointment in front of her.&rdquo;</p>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.4);">&mdash; VERIFIED PATIENT RECORD VIA PRACTO</span>
+        </div>
+        <div style="flex:0 1 300px;">
+          <div style="width:100%; aspect-ratio:3/4; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.08);"><img src="assets/chronicle-1.png" style="width:100%; height:100%; object-fit:cover;" alt="Patient" /></div>
+        </div>
+      </div>
+      <div data-cslide="1" style="position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; justify-content:space-between; gap:clamp(32px,5vw,60px); flex-wrap:wrap; opacity:0; visibility:hidden; transition:opacity 0.8s ease, visibility 0.8s ease;">
+        <div style="flex:1 1 400px; max-width:700px;">
+          <p style="margin:0 0 40px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(24px,3vw,46px); line-height:1.4; font-style:italic; font-weight:300; color:#1C1A17;">&ldquo;The clinic atmosphere is incredibly calming, and Dr. Dipti&rsquo;s approach to youth preservation is meticulous. I felt completely informed throughout the entire protocol.&rdquo;</p>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.4);">&mdash; VERIFIED PATIENT RECORD VIA GOOGLE</span>
+        </div>
+        <div style="flex:0 1 300px;">
+          <div style="width:100%; aspect-ratio:3/4; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.08);"><img src="assets/chronicle-2.png" style="width:100%; height:100%; object-fit:cover;" alt="Patient" /></div>
+        </div>
+      </div>
+      <div data-cslide="2" style="position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; justify-content:space-between; gap:clamp(32px,5vw,60px); flex-wrap:wrap; opacity:0; visibility:hidden; transition:opacity 0.8s ease, visibility 0.8s ease;">
+        <div style="flex:1 1 400px; max-width:700px;">
+          <p style="margin:0 0 40px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(24px,3vw,46px); line-height:1.4; font-style:italic; font-weight:300; color:#1C1A17;">&ldquo;A true boutique experience. It&rsquo;s rare to find a practitioner who listens this closely and executes with such exactitude. My results are balanced and entirely natural.&rdquo;</p>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.4);">&mdash; VERIFIED PATIENT RECORD VIA GOOGLE</span>
+        </div>
+        <div style="flex:0 1 300px;">
+          <div style="width:100%; aspect-ratio:3/4; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.08);"><img src="assets/chronicle-3.png" style="width:100%; height:100%; object-fit:cover;" alt="Patient" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:16px; margin-top:24px; position:relative; z-index:10; justify-content:center;">
+      <button onClick="{{ prevChronicle }}" style="background:none; border:1px solid rgba(28,26,23,0.2); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color 0.3s ease; color:#1C1A17;" style-hover="border-color:#1C1A17;">
+        <span style="font-family:serif; font-size:20px;">&#8592;</span>
+      </button>
+      <button onClick="{{ nextChronicle }}" style="background:none; border:1px solid rgba(28,26,23,0.2); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color 0.3s ease; color:#1C1A17;" style-hover="border-color:#1C1A17;">
+        <span style="font-family:serif; font-size:20px;">&#8594;</span>
+      </button>
+    </div>
+  </section>
+
+
+
+  <section id="instagram" style="border-top:1px solid rgba(28,26,23,0.15); max-width:100%; margin:0 auto; padding:clamp(96px,14vw,200px) 0; overflow:hidden;">
+    <div style="max-width:1440px; margin:0 auto; padding:0 clamp(24px,6vw,120px);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
+        <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">The <span style="font-style:italic;">Journal</span></h2>
+        <a href="https://www.instagram.com/dr.diptimathias.md/" target="_blank" data-reveal style="text-decoration:none; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:#1C1A17; border-bottom:1px solid #1C1A17; padding-bottom:4px; transition:opacity 0.3s ease;" style-hover="opacity:0.6;">@dr.diptimathias.md</a>
+      </div>
+    </div>
+
+    <div data-reveal class="reel-carousel">
+      <div class="reel-track">
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZXJnRWybHx/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZUy9OHyTTt/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZM7TNJS6YU/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZKKkJXyP5i/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DY7EB6Ey6yK/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DXHQKhlEgoT/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <!-- Duplicated for seamless loop -->
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZXJnRWybHx/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZUy9OHyTTt/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZM7TNJS6YU/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DZKKkJXyP5i/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DY7EB6Ey6yK/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="reel-item"><iframe src="https://www.instagram.com/reel/DXHQKhlEgoT/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faqs" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
+      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Patient <span style="font-style:italic;">Inquiries</span></h2>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">F.A.Q.</span>
+    </div>
+
+    <div data-reveal style="max-width:800px;">
+      <sc-for list="{{ faqs }}" as="f">
+        <div onClick="{{ f.onClick }}" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(20px,3vw,32px) 0; cursor:pointer;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:24px;">
+            <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:clamp(22px,2.5vw,32px); line-height:1.2;">{{ f.question }}</h3>
+            <span data-ficon="{{ $index }}" style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:300; transition:transform 0.4s ease; display:inline-block;">+</span>
+          </div>
+          <div data-fbody="{{ $index }}" style="overflow:hidden; max-height:0px; opacity:0; transition:all 0.5s cubic-bezier(.2,.7,.2,1);">
+            <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:15px; line-height:1.6; color:rgba(28,26,23,0.6); max-width:65ch;">{{ f.answer }}</p>
+          </div>
+        </div>
+      </sc-for>
+      <div style="border-top:1px solid rgba(28,26,23,0.15);"></div>
+    </div>
+  </section>
+
+  <footer id="atelier" data-screen-label="Atelier" style="border-top:1px solid rgba(28,26,23,0.15); background:transparent;">
+    <div style="max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px) clamp(40px,6vw,72px);">
+
+      <h2 data-reveal style="margin:0 0 clamp(64px,9vw,130px); font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(40px,7.5vw,104px); line-height:0.98; letter-spacing:-0.022em; max-width:14ch;">An appointment is <span style="font-style:italic;">an invitation.</span></h2>
+
+      <div style="display:flex; gap:clamp(40px,6vw,96px); flex-wrap:wrap;">
+        <div data-reveal style="flex:1 1 240px; min-width:min(100%,220px);">
+          <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:24px;">The Atelier</span>
+          <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(21px,2.2vw,28px); line-height:1.4; font-weight:400;">4th Floor, Amore Edge,<br>1402 Swami Vivekananda Road,<br>Khar West, Mumbai.</p>
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; line-height:1.8; color:rgba(28,26,23,0.5);">Single-doctor boutique clinic.<br>Maharashtra Medical Council<br>Reg. No. 2021076814</p>
+        </div>
+
+        <div data-reveal style="flex:1 1 240px; min-width:min(100%,220px);">
+          <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:24px;">Availability</span>
+          <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(21px,2.2vw,28px); line-height:1.4; font-weight:400;">By prior invitation and private appointment only.</p>
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; line-height:1.8; color:rgba(28,26,23,0.5);">Monday &mdash; Friday<br>10:00 AM &ndash; 7:00 PM</p>
+        </div>
+
+        <div data-reveal style="flex:1.3 1 320px; min-width:min(100%,280px);">
+          <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:24px;">Request an Invitation</span>
+
+          <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ onSubmit }}">
+              <div style="margin-bottom:34px;">
+                <label style="display:block; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(28,26,23,0.4); margin-bottom:12px;">Name</label>
+                <input value="{{ name }}" onChange="{{ onName }}" placeholder="Your full name" style="width:100%; box-sizing:border-box; background:transparent; border:none; border-bottom:1px solid rgba(28,26,23,0.4); padding:8px 0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; color:#1C1A17; outline:none; transition:border-color .4s ease;" style-focus="border-bottom-color:#1C1A17;" />
+              </div>
+              <div style="margin-bottom:40px;">
+                <label style="display:block; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(28,26,23,0.4); margin-bottom:12px;">Primary Area of Concern</label>
+                <input value="{{ concern }}" onChange="{{ onConcern }}" placeholder="e.g. cellular longevity" style="width:100%; box-sizing:border-box; background:transparent; border:none; border-bottom:1px solid rgba(28,26,23,0.4); padding:8px 0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; color:#1C1A17; outline:none; transition:border-color .4s ease;" style-focus="border-bottom-color:#1C1A17;" />
+              </div>
+              <button type="submit" style="background:none; border:none; cursor:pointer; padding:0; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#1C1A17; border-bottom:1px solid #1C1A17; padding-bottom:6px; transition:opacity .4s ease;" style-hover="opacity:0.55;">Submit Inquiry &#8594;</button>
+            </form>
+          </sc-if>
+
+          <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-size:clamp(22px,2.4vw,30px); line-height:1.4; max-width:24ch;">Thank you. Your request has been received &mdash; every invitation is answered, privately, within forty-eight hours.</p>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; margin-top:clamp(80px,12vw,160px); padding-top:28px; border-top:1px solid rgba(28,26,23,0.15);">
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(28,26,23,0.4);">Considered &middot; Unhurried &middot; Exact</span>
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.16em; color:rgba(28,26,23,0.38);">&copy; 2026 Dr. Dipti Mathias | Good Genes</span>
+        <a href="#top" style="text-decoration:none; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(28,26,23,0.5); transition:color .4s ease;" style-hover="color:#1C1A17;">Back to top &#8593;</a>
+      </div>
+    </div>
+  </footer>
+
+  <div style="position:fixed; bottom:24px; right:24px; z-index:100; display:flex; flex-direction:column; align-items:flex-end; gap:16px;">
+    
+    <sc-if value="{{ waOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff; width:320px; border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,0.15); border:1px solid rgba(28,26,23,0.1); overflow:hidden; transform-origin:bottom right; animation:waPop 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);">
+        <div style="background:#25D366; color:#fff; padding:16px 20px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; display:flex; justify-content:space-between; align-items:center;">
+          <span>Private Inquiry</span>
+          <button onClick="{{ toggleWa }}" style="background:none; border:none; color:#fff; cursor:pointer; font-size:24px; line-height:1; padding:0; margin-top:-4px;">&times;</button>
+        </div>
+        <div style="padding:24px 20px;">
+          <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ onSubmit }}">
+              <div style="margin-bottom:20px;">
+                <label style="display:block; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.5); margin-bottom:8px;">Name</label>
+                <input value="{{ name }}" onChange="{{ onName }}" placeholder="Your full name" required style="width:100%; box-sizing:border-box; background:transparent; border:none; border-bottom:1px solid rgba(28,26,23,0.2); padding:6px 0; font-family:'Cormorant Garamond', Georgia, serif; font-size:18px; color:#1C1A17; outline:none;" />
+              </div>
+              <div style="margin-bottom:28px;">
+                <label style="display:block; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.5); margin-bottom:8px;">Concern</label>
+                <input value="{{ concern }}" onChange="{{ onConcern }}" placeholder="e.g. cellular longevity" required style="width:100%; box-sizing:border-box; background:transparent; border:none; border-bottom:1px solid rgba(28,26,23,0.2); padding:6px 0; font-family:'Cormorant Garamond', Georgia, serif; font-size:18px; color:#1C1A17; outline:none;" />
+              </div>
+              <button type="submit" style="width:100%; background:#1C1A17; color:#fff; border:none; border-radius:4px; padding:12px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; transition:opacity 0.3s ease;" style-hover="opacity:0.8;">Start Chat &#8594;</button>
+            </form>
+          </sc-if>
+          <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center; padding:20px 0;">
+              <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-size:22px; line-height:1.4; color:#25D366;">Redirecting...</p>
+              <p style="margin:8px 0 0; font-family:'IBM Plex Mono', monospace; font-size:10px; color:rgba(28,26,23,0.5); text-transform:uppercase;">Opening WhatsApp</p>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <button onClick="{{ toggleWa }}" style="width:60px; height:60px; background-color:#25D366; border:none; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,0.15); cursor:pointer; transition:transform 0.3s ease; padding:0;" style-hover="transform:scale(1.1);">
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openMod: 0, openFaq: 0, name: '', concern: '', submitted: false, waOpen: false, activeChronicle: 0 };
+
+  componentDidMount() {
+    this._revealTimer = setTimeout(() => this._initReveal(), 30);
+    
+    this._syncMod();
+
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        this._spy();
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    setTimeout(() => this._spy(), 60);
+
+    // Initialize Atmosphere and Instagram Reels carousels with smooth scroll animation
+    setTimeout(() => {
+      this._initCarousel('.carousel-wrapper', '.carousel-track', '.carousel-item', 0.85);
+      this._initCarousel('.reel-carousel', '.reel-track', '.reel-item', 0.6);
+    }, 100);
+
+    // Touch swipe for chronicles (improved touch-drag detection)
+    setTimeout(() => {
+      if (!this.rootEl) return;
+      const cSection = this.rootEl.querySelector('#chronicles');
+      if (cSection) {
+        let startX = 0;
+        let startY = 0;
+        cSection.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, { passive: true });
+        cSection.addEventListener('touchend', (e) => {
+          const dx = e.changedTouches[0].clientX - startX;
+          const dy = e.changedTouches[0].clientY - startY;
+          // Only transition if swipe is primarily horizontal
+          if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            if (dx < 0) this.setState((s) => ({ activeChronicle: (s.activeChronicle + 1) % 3 }));
+            else this.setState((s) => ({ activeChronicle: (s.activeChronicle - 1 + 3) % 3 }));
+          }
+        }, { passive: true });
+      }
+    }, 100);
+
+    // Auto-rotate chronicles every 6s
+    this._chronicleAuto = setInterval(() => {
+      this.setState((s) => ({ activeChronicle: (s.activeChronicle + 1) % 3 }));
+    }, 6000);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    if (this._revealScroll) window.removeEventListener('scroll', this._revealScroll);
+    if (this.io) this.io.disconnect();
+    clearTimeout(this._revealTimer);
+    clearTimeout(this._revealFallback);
+    if (this._chronicleAuto) clearInterval(this._chronicleAuto);
+    if (this._carouselRafs) {
+      this._carouselRafs.forEach(cancelAnimationFrame);
+    }
+  }
+
+  _initCarousel(wrapperClass, trackClass, itemClass, speed = 0.5) {
+    if (!this.rootEl) return;
+    const wrapper = this.rootEl.querySelector(wrapperClass);
+    if (!wrapper) return;
+    const track = wrapper.querySelector(trackClass);
+    if (!track) return;
+
+    wrapper.style.overflowX = 'auto';
+    wrapper.style.overflowY = 'hidden';
+    wrapper.style.webkitOverflowScrolling = 'touch';
+    wrapper.style.scrollBehavior = 'auto';
+    track.style.transition = 'none';
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeftVal = 0;
+    let isPaused = false;
+    let touchHasMoved = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const pause = () => { isPaused = true; };
+    const resume = () => { isPaused = false; };
+
+    wrapper.addEventListener('mouseenter', pause);
+    wrapper.addEventListener('mouseleave', () => { isDown = false; resume(); });
+    wrapper.addEventListener('touchstart', pause, { passive: true });
+    wrapper.addEventListener('touchend', resume, { passive: true });
+
+    wrapper.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - wrapper.offsetLeft;
+      scrollLeftVal = wrapper.scrollLeft;
+    });
+    wrapper.addEventListener('mouseup', () => { isDown = false; });
+    wrapper.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - wrapper.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      wrapper.scrollLeft = scrollLeftVal - walk;
+    });
+
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchHasMoved = false;
+      scrollLeftVal = wrapper.scrollLeft;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 10) {
+        touchHasMoved = true;
+      }
+    }, { passive: true });
+
+    // For Reels, inject overlay inside each .reel-item if it doesn't exist yet
+    if (wrapperClass === '.reel-carousel') {
+      const items = track.querySelectorAll(itemClass);
+      items.forEach((item) => {
+        if (item.querySelector('.reel-overlay')) return;
+        
+        const iframe = item.querySelector('iframe');
+        if (!iframe) return;
+        
+        // Extract real reel url from iframe src
+        const src = iframe.getAttribute('src') || '';
+        const match = src.match(/\/reel\/([A-Za-z0-9_-]+)/);
+        const reelId = match ? match[1] : '';
+        const realUrl = reelId ? `https://www.instagram.com/reel/${reelId}/` : 'https://www.instagram.com/dr.diptimathias.md/';
+        
+        item.style.position = 'relative';
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'reel-overlay';
+        overlay.setAttribute('data-url', realUrl);
+        overlay.style.position = 'absolute';
+        overlay.style.inset = '0';
+        overlay.style.zIndex = '5';
+        overlay.style.cursor = 'pointer';
+        overlay.style.background = 'transparent';
+        
+        item.appendChild(overlay);
+
+        // Click handler for desktop mouse click (when no drag)
+        let mdX = 0, mdY = 0;
+        overlay.addEventListener('mousedown', (e) => {
+          mdX = e.clientX;
+          mdY = e.clientY;
+        });
+        overlay.addEventListener('mouseup', (e) => {
+          const dx = e.clientX - mdX;
+          const dy = e.clientY - mdY;
+          if (Math.abs(dx) < 5 && Math.abs(dy) < 5) {
+            window.open(realUrl, '_blank');
+          }
+        });
+
+        // Touch handler for mobile click (when no swipe)
+        overlay.addEventListener('touchend', (e) => {
+          if (!touchHasMoved) {
+            window.open(realUrl, '_blank');
+          }
+        });
+      });
+    }
+
+    const step = () => {
+      if (!isPaused && !isDown && !touchHasMoved) {
+        wrapper.scrollLeft += speed;
+        const halfWidth = track.scrollWidth / 2;
+        if (wrapper.scrollLeft >= halfWidth - 2) {
+          wrapper.scrollLeft = 0;
+        }
+      }
+      this._carouselRafs = this._carouselRafs || [];
+      const rafId = requestAnimationFrame(step);
+      this._carouselRafs.push(rafId);
+    };
+    step();
+  }
+
+  componentDidUpdate() {
+    this._syncMod();
+    this._syncFaq();
+    this._syncChronicle();
+  }
+
+  _syncMod() {
+    if (!this.rootEl) return;
+    this.rootEl.querySelectorAll('[data-mbody]').forEach((b) => {
+      const open = +b.getAttribute('data-mbody') === this.state.openMod;
+      b.style.maxHeight = open ? '340px' : '0px';
+      b.style.opacity = open ? '1' : '0';
+      b.style.marginTop = open ? '28px' : '0px';
+    });
+    this.rootEl.querySelectorAll('[data-vbar]').forEach((v) => {
+      const open = +v.getAttribute('data-vbar') === this.state.openMod;
+      v.style.transform = 'translateX(-50%) ' + (open ? 'scaleY(0)' : 'scaleY(1)');
+    });
+  }
+
+  _syncFaq() {
+    if (!this.rootEl) return;
+    this.rootEl.querySelectorAll('[data-fbody]').forEach((b) => {
+      const open = +b.getAttribute('data-fbody') === this.state.openFaq;
+      b.style.maxHeight = open ? '300px' : '0px';
+      b.style.opacity = open ? '1' : '0';
+    });
+    this.rootEl.querySelectorAll('[data-ficon]').forEach((i) => {
+      const open = +i.getAttribute('data-ficon') === this.state.openFaq;
+      i.style.transform = open ? 'rotate(45deg)' : 'rotate(0)';
+    });
+  }
+
+  _syncChronicle() {
+    if (!this.rootEl) return;
+    const idx = this.state.activeChronicle;
+    this.rootEl.querySelectorAll('[data-cslide]').forEach((s) => {
+      const on = +s.getAttribute('data-cslide') === idx;
+      s.style.opacity = on ? '1' : '0';
+      s.style.visibility = on ? 'visible' : 'hidden';
+    });
+    const counter = this.rootEl.querySelector('[data-chronicle-counter]');
+    if (counter) counter.textContent = '0' + (idx + 1) + ' / 03';
+  }
+
+  _initReveal() {
+    if (!this.rootEl) return;
+    const nodes = [...this.rootEl.querySelectorAll('[data-reveal]')];
+    const reveal = (n) => {
+      if (n.dataset.revealed) return;
+      n.dataset.revealed = '1';
+      n.style.opacity = '1';
+      n.style.transform = 'none';
+    };
+    nodes.forEach((n) => {
+      n.style.opacity = '0';
+      n.style.transform = 'translateY(24px)';
+      n.style.transition = 'opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)';
+      n.style.willChange = 'opacity, transform';
+    });
+    // Reveal anything in (or near) the viewport without depending on IO.
+    const revealInView = () => {
+      const h = window.innerHeight || 800;
+      nodes.forEach((n) => {
+        if (n.dataset.revealed) return;
+        const r = n.getBoundingClientRect();
+        if (r.top < h * 0.94 && r.bottom > -40) reveal(n);
+      });
+    };
+    // Progressive enhancement: IntersectionObserver where it works.
+    try {
+      this.io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { reveal(e.target); this.io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+      nodes.forEach((n) => this.io.observe(n));
+    } catch (err) { /* IO unsupported — fallbacks below cover it */ }
+    revealInView();
+    this._revealScroll = revealInView;
+    window.addEventListener('scroll', revealInView, { passive: true });
+    // Ultimate safety net: never leave content hidden.
+    this._revealFallback = setTimeout(() => nodes.forEach(reveal), 1400);
+  }
+
+  _spy() {
+    if (!this.rootEl) return;
+    const ids = ['clinic', 'curations', 'reviews', 'atelier'];
+    const probe = window.innerHeight * 0.34;
+    let current = ids[0];
+    ids.forEach((id) => {
+      const el = this.rootEl.querySelector('#' + id);
+      if (el && el.getBoundingClientRect().top <= probe) current = id;
+    });
+    this.rootEl.querySelectorAll('[data-nav]').forEach((a) => {
+      const on = a.getAttribute('data-nav') === current;
+      a.style.opacity = on ? '1' : '';
+      const u = a.querySelector('[data-ul]');
+      if (u) u.style.transform = on ? 'scaleX(1)' : 'scaleX(0)';
+    });
+  }
+
+  renderVals() {
+    const chronicles = [
+      { quote: "“I have sat in many chairs across many cities. This is the first where the doctor seemed more interested in the decade ahead than the appointment in front of her.”", author: "VERIFIED PATIENT RECORD VIA PRACTO" },
+      { quote: "“The clinic atmosphere is incredibly calming, and Dr. Dipti's approach to youth preservation is meticulous. I felt completely informed throughout the entire protocol.”", author: "VERIFIED PATIENT RECORD VIA GOOGLE" },
+      { quote: "“A true boutique experience. It’s rare to find a practitioner who listens this closely and executes with such exactitude. My results are balanced and entirely natural.”", author: "VERIFIED PATIENT RECORD VIA GOOGLE" }
+    ];
+
+    const timeline = [];
+
+    const modData = [
+      { numeral: 'I.', title: 'Face Contouring', summary: 'A sophisticated technique aimed at reshaping and enhancing facial structure using the Phi ratio for balanced, natural-looking, and harmonious proportions.' },
+      { numeral: 'II.', title: 'Non-Invasive Anti-Ageing', summary: 'Combat the signs of ageing like loose skin and fine lines without surgery using advanced laser therapies, HIFU, Morpheus8, and rigorous skincare routines.' },
+      { numeral: 'III.', title: 'Liquid Facelift & Feature Restoration', summary: 'Non-surgical facelifts using dermal fillers, Botox, skin boosters, and Profhilo to address sagging skin, wrinkles, and loss of volume with minimal downtime.' },
+      { numeral: 'IV.', title: 'Youth Preservation', summary: 'Natural preventative ageing treatments including PRP, PRF, and Growth Factor Concentrate (GFC) therapies to stimulate collagen production and cell regeneration.' },
+      { numeral: 'V.', title: '360° Hair Regrowth', summary: 'Advanced therapies including QR678, GFC, PRP, and PRF to combat alopecia and thinning by stimulating the scalp with growth factors for natural hair regrowth.' },
+      { numeral: 'VI.', title: 'Non-Invasive Body Sculpting', summary: 'Cutting-edge contouring treatments including fat freezing (cryolipolysis), RF Skin Tightening, and HIFEM Sculpting to build muscle and reduce fat without surgery.' }
+    ];
+    const modalities = modData.map((m, i) => ({
+      numeral: m.numeral,
+      title: m.title,
+      summary: m.summary,
+      onClick: () => this.setState((s) => ({ openMod: s.openMod === i ? -1 : i })),
+    }));
+
+    const faqData = [
+      { question: 'What is the consultation process like?', answer: 'Your initial consultation is an unhurried, comprehensive assessment of your skin architecture, concerns, and aesthetic goals. We do not rush this process. Expect a detailed discussion resulting in a bespoke protocol.' },
+      { question: 'Is there downtime associated with treatments?', answer: 'Downtime varies heavily depending on the specific modality used. Many of our non-invasive skin boosters and injectables have zero to minimal downtime, while deeper laser therapies may require a few days of social downtime.' },
+      { question: 'How often should I schedule an appointment?', answer: 'This is entirely dependent on your bespoke protocol. For youth preservation, we generally recommend quarterly visits, while active treatments like hair regrowth may require monthly sessions initially.' },
+      { question: 'Do you offer virtual consultations?', answer: 'We believe aesthetic dermatology requires precise, in-person assessment of skin quality, laxity, and structural anatomy. Therefore, we only consult in-clinic.' }
+    ];
+    const faqs = faqData.map((f, i) => ({
+      question: f.question,
+      answer: f.answer,
+      numeral: f.numeral,
+      onClick: () => this.setState((s) => ({ openFaq: s.openFaq === i ? -1 : i }))
+    }));
+
+    this._syncMod();
+    this._syncFaq();
+
+    return {
+      setRoot: (el) => { this.rootEl = el; },
+      timeline,
+      modalities,
+            faqs,
+      chronicles,
+      activeChronicle: this.state.activeChronicle,
+      nextChronicle: () => this.setState((s) => ({ activeChronicle: (s.activeChronicle + 1) % chronicles.length })),
+      prevChronicle: () => this.setState((s) => ({ activeChronicle: (s.activeChronicle - 1 + chronicles.length) % chronicles.length })),
+
+      name: this.state.name,
+      concern: this.state.concern,
+      onName: (e) => this.setState({ name: e.target.value }),
+      onConcern: (e) => this.setState({ concern: e.target.value }),
+      onSubmit: (e) => {
+        e.preventDefault();
+        const text = encodeURIComponent(`Hi, I'm ${this.state.name}. My primary concern is ${this.state.concern}. I would like to request an invitation.`);
+        window.open(`https://wa.me/919004185406?text=${text}`, '_blank');
+        this.setState({ submitted: true });
+      },
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      waOpen: this.state.waOpen,
+      toggleWa: () => this.setState((s) => ({ waOpen: !s.waOpen })),
+    };
+  }
+}
+</script>
+</body>
+</html>
