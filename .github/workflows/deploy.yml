@@ -30,7 +30,9 @@ jobs:
         run: cd seo-analytics && npm install
 
       - name: Fetch GA4 data and update mock-data.ts
-        run: cd seo-analytics && node scripts/update-mock-data.mjs
+        run: |
+          cp -r scripts seo-analytics/scripts
+          cd seo-analytics && node scripts/update-mock-data.mjs
 
       - name: Build dashboard
         run: cd seo-analytics && npm run build
