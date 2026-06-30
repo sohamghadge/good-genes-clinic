@@ -27,7 +27,7 @@ jobs:
           node-version: 20
 
       - name: Install deps
-        run: cd seo-analytics && npm ci
+        run: cd seo-analytics && npm install
 
       - name: Fetch GA4 data and update mock-data.ts
         run: cd seo-analytics && node scripts/update-mock-data.mjs
