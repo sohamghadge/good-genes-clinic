@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Checkout portfolio
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
 
       - name: Checkout SEO analytics repo
         uses: actions/checkout@v4
