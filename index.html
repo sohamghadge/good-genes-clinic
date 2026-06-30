@@ -351,21 +351,90 @@
     </div>
 
     <div data-reveal>
-      <sc-for list="{{ modalities }}" as="m" hint-placeholder-count="3">
-        <div onClick="{{ m.onClick }}" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
-          <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-            <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">{{ m.numeral }}</span>
-            <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">{{ m.title }}</h3>
-            <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-              <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-              <span data-vbar="{{ $index }}" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
-            </span>
-          </div>
-          <div data-mbody="{{ $index }}" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-            <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">{{ m.summary }}</p>
-          </div>
+      <!-- Modalities Statically Rendered for SEO crawlability -->
+      <div onclick="toggleModality(0)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+        <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">I.</span>
+          <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Face Contouring</h3>
+          <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+            <span data-vbar="0" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+          </span>
         </div>
-      </sc-for>
+        <div data-mbody="0" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">A sophisticated technique aimed at reshaping and enhancing facial structure using the Phi ratio for balanced, natural-looking, and harmonious proportions.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleModality(1)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+        <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">II.</span>
+          <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Non-Invasive Anti-Ageing</h3>
+          <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+            <span data-vbar="1" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+          </span>
+        </div>
+        <div data-mbody="1" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Combat the signs of ageing like loose skin and fine lines without surgery using advanced laser therapies, HIFU, Morpheus8, and rigorous skincare routines.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleModality(2)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+        <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">III.</span>
+          <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Liquid Facelift &amp; Feature Restoration</h3>
+          <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+            <span data-vbar="2" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+          </span>
+        </div>
+        <div data-mbody="2" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Non-surgical facelifts using dermal fillers, Botox, skin boosters, and Profhilo to address sagging skin, wrinkles, and loss of volume with minimal downtime.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleModality(3)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+        <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">IV.</span>
+          <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Youth Preservation</h3>
+          <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+            <span data-vbar="3" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+          </span>
+        </div>
+        <div data-mbody="3" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Natural preventative ageing treatments including PRP, PRF, and Growth Factor Concentrate (GFC) therapies to stimulate collagen production and cell regeneration.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleModality(4)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+        <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">V.</span>
+          <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">360° Hair Regrowth</h3>
+          <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+            <span data-vbar="4" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+          </span>
+        </div>
+        <div data-mbody="4" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Advanced therapies including QR678, GFC, PRP, and PRF to combat alopecia and thinning by stimulating the scalp with growth factors for natural hair regrowth.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleModality(5)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+        <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">VI.</span>
+          <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Non-Invasive Body Sculpting</h3>
+          <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
+            <span data-vbar="5" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+          </span>
+        </div>
+        <div data-mbody="5" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
+          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Cutting-edge contouring treatments including fat freezing (cryolipolysis), RF Skin Tightening, and HIFEM Sculpting to build muscle and reduce fat without surgery.</p>
+        </div>
+      </div>
       <div style="border-top:1px solid rgba(28,26,23,0.15);"></div>
     </div>
   </section>
@@ -601,17 +670,46 @@
     </div>
 
     <div data-reveal style="max-width:800px;">
-      <sc-for list="{{ faqs }}" as="f">
-        <div onClick="{{ f.onClick }}" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(20px,3vw,32px) 0; cursor:pointer;">
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:24px;">
-            <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:clamp(22px,2.5vw,32px); line-height:1.2;">{{ f.question }}</h3>
-            <span data-ficon="{{ $index }}" style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:300; transition:transform 0.4s ease; display:inline-block;">+</span>
-          </div>
-          <div data-fbody="{{ $index }}" style="overflow:hidden; max-height:0px; opacity:0; transition:all 0.5s cubic-bezier(.2,.7,.2,1);">
-            <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:15px; line-height:1.6; color:rgba(28,26,23,0.6); max-width:65ch;">{{ f.answer }}</p>
-          </div>
+      <!-- FAQs Statically Rendered for SEO crawlability -->
+      <div onclick="toggleFaq(0)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(20px,3vw,32px) 0; cursor:pointer;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:24px;">
+          <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:clamp(22px,2.5vw,32px); line-height:1.2;">What is the consultation process like?</h3>
+          <span data-ficon="0" style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:300; transition:transform 0.4s ease; display:inline-block;">+</span>
         </div>
-      </sc-for>
+        <div data-fbody="0" style="overflow:hidden; max-height:0px; opacity:0; transition:all 0.5s cubic-bezier(.2,.7,.2,1);">
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:15px; line-height:1.6; color:rgba(28,26,23,0.6); max-width:65ch;">Your initial consultation is an unhurried, comprehensive assessment of your skin architecture, concerns, and aesthetic goals. We do not rush this process. Expect a detailed discussion resulting in a bespoke protocol.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleFaq(1)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(20px,3vw,32px) 0; cursor:pointer;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:24px;">
+          <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:clamp(22px,2.5vw,32px); line-height:1.2;">Is there downtime associated with treatments?</h3>
+          <span data-ficon="1" style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:300; transition:transform 0.4s ease; display:inline-block;">+</span>
+        </div>
+        <div data-fbody="1" style="overflow:hidden; max-height:0px; opacity:0; transition:all 0.5s cubic-bezier(.2,.7,.2,1);">
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:15px; line-height:1.6; color:rgba(28,26,23,0.6); max-width:65ch;">Downtime varies heavily depending on the specific modality used. Many of our non-invasive skin boosters and injectables have zero to minimal downtime, while deeper laser therapies may require a few days of social downtime.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleFaq(2)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(20px,3vw,32px) 0; cursor:pointer;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:24px;">
+          <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:clamp(22px,2.5vw,32px); line-height:1.2;">How often should I schedule an appointment?</h3>
+          <span data-ficon="2" style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:300; transition:transform 0.4s ease; display:inline-block;">+</span>
+        </div>
+        <div data-fbody="2" style="overflow:hidden; max-height:0px; opacity:0; transition:all 0.5s cubic-bezier(.2,.7,.2,1);">
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:15px; line-height:1.6; color:rgba(28,26,23,0.6); max-width:65ch;">This is entirely dependent on your bespoke protocol. For youth preservation, we generally recommend quarterly visits, while active treatments like hair regrowth may require monthly sessions initially.</p>
+        </div>
+      </div>
+
+      <div onclick="toggleFaq(3)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(20px,3vw,32px) 0; cursor:pointer;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:24px;">
+          <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:clamp(22px,2.5vw,32px); line-height:1.2;">Do you offer virtual consultations?</h3>
+          <span data-ficon="3" style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:300; transition:transform 0.4s ease; display:inline-block;">+</span>
+        </div>
+        <div data-fbody="3" style="overflow:hidden; max-height:0px; opacity:0; transition:all 0.5s cubic-bezier(.2,.7,.2,1);">
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:15px; line-height:1.6; color:rgba(28,26,23,0.6); max-width:65ch;">We believe aesthetic dermatology requires precise, in-person assessment of skin quality, laxity, and structural anatomy. Therefore, we only consult in-clinic.</p>
+        </div>
+      </div>
       <div style="border-top:1px solid rgba(28,26,23,0.15);"></div>
     </div>
   </section>
@@ -1090,6 +1188,39 @@ class Component extends DCLogic {
       toggleWa: () => this.setState((s) => ({ waOpen: !s.waOpen })),
     };
   }
+}
+</script>
+<script>
+function toggleModality(index) {
+  const bodies = document.querySelectorAll('[data-mbody]');
+  const vbars = document.querySelectorAll('[data-vbar]');
+  
+  bodies.forEach((b, i) => {
+    const open = i === index && b.style.maxHeight !== '340px';
+    b.style.maxHeight = open ? '340px' : '0px';
+    b.style.opacity = open ? '1' : '0';
+    b.style.marginTop = open ? '28px' : '0px';
+  });
+  vbars.forEach((v, i) => {
+    const open = i === index && bodies[i].style.maxHeight === '340px';
+    v.style.transform = 'translateX(-50%) ' + (open ? 'scaleY(0)' : 'scaleY(1)');
+  });
+}
+
+function toggleFaq(index) {
+  const bodies = document.querySelectorAll('[data-fbody]');
+  const icons = document.querySelectorAll('[data-ficon]');
+  
+  bodies.forEach((b, i) => {
+    const open = i === index && b.style.maxHeight !== '200px';
+    b.style.maxHeight = open ? '200px' : '0px';
+    b.style.opacity = open ? '1' : '0';
+    b.style.marginTop = open ? '20px' : '0px';
+  });
+  icons.forEach((icon, i) => {
+    const open = i === index && bodies[i].style.maxHeight === '200px';
+    icon.style.transform = open ? 'rotate(45deg)' : 'none';
+  });
 }
 </script>
 </body>
