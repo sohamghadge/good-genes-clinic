@@ -33,21 +33,21 @@
     html, body { height: auto !important; min-height: 100%; }
     body {
       margin: 0;
-      background-color: #FDFCFB;
-      background-image: url('/assets/bg.png');
+      background-color: #BACAB8;
+      background-image: url('/assets/bg-green.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: #1C1A17;
+      color: #111610;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
       font-family: 'EB Garamond', Georgia, serif;
     }
     p, li, span, h1, h2, h3, figcaption, a { text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45); }
-    p { color: rgba(28, 26, 23, 0.90) !important; font-size: clamp(17px, 1.25vw, 20px); line-height: 1.72; }
-    li { color: rgba(28, 26, 23, 0.85) !important; font-size: clamp(16px, 1.2vw, 19px); line-height: 1.6; }
-    ::selection { background: #1C1A17; color: #FDFCFB; }
-    ::-moz-selection { background: #1C1A17; color: #FDFCFB; }
+    p { color: rgba(17, 22, 16, 0.90) !important; font-size: clamp(17px, 1.25vw, 20px); line-height: 1.72; }
+    li { color: rgba(17, 22, 16, 0.85) !important; font-size: clamp(16px, 1.2vw, 19px); line-height: 1.6; }
+    ::selection { background: #4C5E48; color: #F4F6F2; }
+    ::-moz-selection { background: #4C5E48; color: #F4F6F2; }
 
     /* Sticky Nav */
     nav {
@@ -57,7 +57,7 @@
       backdrop-filter: saturate(120%) blur(14px);
       -webkit-backdrop-filter: saturate(120%) blur(14px);
       background: rgba(255,255,255,0.75);
-      border-bottom: 1px solid rgba(28, 26, 23, 0.12);
+      border-bottom: 1px solid rgba(35, 46, 33, 0.12);
     }
     .nav-container {
       max-width: 1440px;
@@ -177,20 +177,22 @@
 <body>
 
   <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-container">
-      <a href="/index.html#top" class="nav-logo">
-        <img src="/assets/logo.png" alt="Good Genes Clinic" />
+  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(14px); -webkit-backdrop-filter:saturate(120%) blur(14px); background:rgba(255,255,255,0.75); border-bottom:1px solid rgba(35,46,33,0.12);">
+    <div style="max-width:1440px; margin:0 auto; padding:0 clamp(24px,6vw,120px); min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <a href="/index.html#top" style="text-decoration:none; display:flex; align-items:center;">
+        <img src="/assets/logo.png" alt="Good Genes Clinic" style="height:72px; mix-blend-mode: multiply;" />
       </a>
 
-      <div class="nav-links">
-        <a class="nav-link" href="/index.html#clinic">The Clinic</a>
-        <a class="nav-link" href="/index.html#curations">Treatments</a>
-        <a class="nav-link" href="/index.html#reviews">Experiences</a>
-        <a class="nav-link" href="/index.html#atelier">Contact</a>
+      <div style="display:flex; align-items:center; gap:clamp(16px,2.5vw,36px); flex-wrap:wrap; justify-content:center;">
+        <a href="/index.html#philosophy" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">About</a>
+        <a href="/index.html#curations" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease; display:inline-block;" style-hover="opacity:1;">Treatments</a>
+        <a href="/index.html#indications" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Scope</a>
+        <a href="/index.html#outcomes" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Before/After</a>
+        <a href="/index.html#reviews" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Reviews</a>
+        <a href="/index.html#atelier" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Contact</a>
       </div>
 
-      <a href="/index.html#atelier" class="nav-link" style="opacity: 0.85;">Private Inquiry &#8594;</a>
+      <a href="/index.html#atelier" style="text-decoration:none; color:#111610; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; white-space:nowrap; opacity:0.85; transition:opacity .4s ease;" style-hover="opacity:1;">Private Inquiry&nbsp;&#8594;</a>
     </div>
   </nav>
 

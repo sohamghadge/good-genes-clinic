@@ -78,10 +78,203 @@
   html { scroll-behavior: smooth; }
   html, body { height: auto !important; min-height: 100%; }
   #dc-root, #dc-root > .sc-host { height: auto !important; min-height: 100%; }
-  body { margin: 0; background-color: #FDFCFB; background-image: url('assets/bg.png'); background-size: cover; background-position: center; background-attachment: fixed; color: #1C1A17; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  ::selection { background: #1C1A17; color: #FDFCFB; }
-  ::-moz-selection { background: #1C1A17; color: #FDFCFB; }
-  input::placeholder { color: rgba(28,26,23,0.30); }
+  body {
+    margin: 0;
+    background-color: #BACAB8;
+    background-image: url('assets/bg-green.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #111610;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  p, li, span, h1, h2, h3, figcaption, a {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
+  }
+  ::selection { background: #4C5E48; color: #F4F6F2; }
+  ::-moz-selection { background: #4C5E48; color: #F4F6F2; }
+  input::placeholder { color: rgba(17, 22, 16, 0.35); }
+
+  /* Curations Hover Dropdown */
+  .dropdown-container {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(244, 246, 242, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(35, 46, 33, 0.15);
+    box-shadow: 0 20px 48px rgba(35, 46, 33, 0.12);
+    border-radius: 12px;
+    padding: 32px;
+    width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    text-align: left;
+  }
+  .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+  }
+  .dropdown-container:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-col-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(35, 46, 33, 0.5);
+    border-bottom: 1px solid rgba(35, 46, 33, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .dropdown-col-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .dropdown-item {
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    color: #111610;
+    transition: opacity 0.2s, padding-left 0.2s;
+    display: inline-block;
+  }
+  .dropdown-item:hover {
+    opacity: 0.6;
+    padding-left: 4px;
+  }
+  @media (max-width: 800px) {
+    .dropdown-menu {
+      display: none !important;
+    }
+  }
+
+  /* Before/After Comparison Sliders */
+  .ba-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(35,46,33,0.15);
+    user-select: none;
+    cursor: ew-resize;
+  }
+  .ba-image-before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .ba-image-after-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-right: 2px solid #111610;
+    pointer-events: none;
+  }
+  .ba-image-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .ba-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #111610;
+    cursor: ew-resize;
+    z-index: 10;
+  }
+  .ba-handle-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: #F4F6F2;
+    border: 2px solid #111610;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(35,46,33,0.25);
+    pointer-events: none;
+  }
+  .ba-handle-button::before, .ba-handle-button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  .ba-handle-button::before {
+    border-width: 4px 6px 4px 0;
+    border-color: transparent #111610 transparent transparent;
+    left: 6px;
+  }
+  .ba-handle-button::after {
+    border-width: 4px 0 4px 6px;
+    border-color: transparent transparent transparent #111610;
+    right: 6px;
+  }
+  .ba-badge {
+    position: absolute;
+    bottom: 12px;
+    background: rgba(35,46,33,0.85);
+    color: #F4F6F2;
+    padding: 4px 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .ba-badge-after {
+    right: 12px;
+  }
+  .ba-badge-before {
+    left: 12px;
+  }
   @keyframes ggCaret { 0%,100%{opacity:1} 50%{opacity:0} }
   @keyframes marquee {
     0% { transform: translateX(0%); }
@@ -190,20 +383,59 @@
 
 <div ref="{{ setRoot }}" id="top" style="background:transparent; color:#1C1A17; font-family:'EB Garamond', Georgia, serif; overflow-x:clip; position:relative;">
 
-  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(14px); -webkit-backdrop-filter:saturate(120%) blur(14px); background:rgba(255,255,255,0.75); border-bottom:1px solid rgba(28,26,23,0.12);">
+  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(14px); -webkit-backdrop-filter:saturate(120%) blur(14px); background:rgba(255,255,255,0.75); border-bottom:1px solid rgba(35,46,33,0.12);">
     <div style="max-width:1440px; margin:0 auto; padding:0 clamp(24px,6vw,120px); min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
       <a href="#top" style="text-decoration:none; display:flex; align-items:center;">
         <img src="assets/logo.png" alt="Good Genes Clinic" style="height:72px; mix-blend-mode: multiply;" />
       </a>
 
-      <div style="display:flex; align-items:center; gap:clamp(20px,3vw,46px); flex-wrap:wrap; justify-content:center;">
-        <a data-nav="clinic" href="#clinic" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">The Clinic<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a data-nav="curations" href="#curations" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Treatments<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a data-nav="reviews" href="#reviews" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Experiences<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a data-nav="atelier" href="#atelier" style="position:relative; text-decoration:none; color:#1C1A17; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Contact<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#1C1A17; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+      <div style="display:flex; align-items:center; gap:clamp(16px,2.5vw,36px); flex-wrap:wrap; justify-content:center;">
+        <a data-nav="philosophy" href="#philosophy" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">About<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#111610; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        
+        <div class="dropdown-container">
+          <a data-nav="curations" href="#curations" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease; display:inline-block;" style-hover="opacity:1;">Treatments<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#111610; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+          <div class="dropdown-menu">
+            <div>
+              <div class="dropdown-col-title">Lifting &amp; Contouring</div>
+              <div class="dropdown-col-list">
+                <a href="treatments.html#skin-lifting" class="dropdown-item">Skin lifting &amp; tightening</a>
+                <a href="treatments.html#hifu" class="dropdown-item">HIFU (Ultrasound Lift)</a>
+                <a href="treatments.html#facelift" class="dropdown-item">Facelift without surgery</a>
+                <a href="treatments.html#botox" class="dropdown-item">Botox &amp; Dysport</a>
+                <a href="treatments.html#fillers" class="dropdown-item">Fillers &amp; Face contouring</a>
+              </div>
+            </div>
+            <div>
+              <div class="dropdown-col-title">Regenerative Aesthetics</div>
+              <div class="dropdown-col-list">
+                <a href="treatments.html#salmon-dna" class="dropdown-item">Salmon DNA / PDRN</a>
+                <a href="treatments.html#microneedling" class="dropdown-item">Microneedling &amp; MNRF</a>
+                <a href="treatments.html#pico-laser" class="dropdown-item">Pico laser</a>
+                <a href="treatments.html#chemical-peels" class="dropdown-item">Chemical peels</a>
+                <a href="treatments.html#medical-facials" class="dropdown-item">Medical Facials</a>
+              </div>
+            </div>
+            <div>
+              <div class="dropdown-col-title">Corrective Procedures</div>
+              <div class="dropdown-col-list">
+                <a href="treatments.html#acne-scars" class="dropdown-item">Acne &amp; Acne scars</a>
+                <a href="treatments.html#dark-circles" class="dropdown-item">Dark circles</a>
+                <a href="treatments.html#cautery" class="dropdown-item">Cautery for Skintags</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a data-nav="indications" href="#indications" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Scope<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#111610; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        
+        <a data-nav="outcomes" href="#outcomes" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Before/After<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#111610; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        
+        <a data-nav="reviews" href="#reviews" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Reviews<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#111610; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
+        
+        <a data-nav="atelier" href="#atelier" style="position:relative; text-decoration:none; color:#111610; opacity:0.6; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding-bottom:4px; transition:opacity .4s ease;" style-hover="opacity:1;">Contact<span data-ul="1" style="position:absolute; left:0; bottom:0; width:100%; height:1px; background:#111610; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span></a>
       </div>
 
-      <a href="#atelier" style="text-decoration:none; color:#1C1A17; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; white-space:nowrap; opacity:0.85; transition:opacity .4s ease;" style-hover="opacity:1;">Private Inquiry&nbsp;<span style="display:inline-block; transition:transform .4s ease;">&#8594;</span></a>
+      <a href="#atelier" style="text-decoration:none; color:#111610; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; white-space:nowrap; opacity:0.85; transition:opacity .4s ease;" style-hover="opacity:1;">Private Inquiry&nbsp;<span style="display:inline-block; transition:transform .4s ease;">&#8594;</span></a>
     </div>
   </nav>
 
@@ -299,46 +531,63 @@
   </section>
 
 
-  <section id="doctor" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
-      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">The <span style="font-style:italic;">Doctor</span></h2>
-      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Dr. Dipti Mathias</span>
-    </div>
-    
-    <div data-reveal style="display:flex; gap:clamp(40px,8vw,80px); align-items:center; flex-wrap:wrap;">
-      <div style="flex:1 1 400px; min-width:300px;">
-        <div style="position:relative; width:100%; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.1);">
-          <img src="assets/dr_dipti.jpg" style="width:100%; height:auto; display:block;" alt="Dr. Dipti Mathias" />
+  <section id="philosophy" data-screen-label="About the Doctor" style="border-top:1px solid rgba(35,46,33,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
+    <div style="display:flex; gap:clamp(40px,7vw,120px); flex-wrap:wrap; align-items:flex-start;">
+
+      <div data-reveal class="philosophy-photo" style="flex:0 1 340px; min-width:min(100%,260px); position:sticky; top:96px;">
+        <div style="position:relative; width:100%; aspect-ratio:3/4.05; border:1px solid rgba(35,46,33,0.15); overflow:hidden; background:#D0DAD1;">
+          <img src="assets/real-doctor.png" alt="Dr. Dipti Mathias" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+        </div>
+        <div style="margin-top:20px;">
+          <div style="font-family:'Cormorant Garamond', Georgia, serif; font-size:24px; font-weight:400; letter-spacing:-0.01em;">Dr. Dipti Mathias</div>
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:rgba(35,46,33,0.45); margin-top:6px;">Founder &amp; Head Dermatologist</div>
         </div>
       </div>
-      <div style="flex:1.2 1 400px;">
-        <h3 style="margin:0 0 24px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(28px,3.5vw,42px); font-weight:400; line-height:1.2;">Consulting Aesthetic Dermatologist & Trichologist</h3>
-        <p style="margin:0 0 24px; font-size:clamp(16px,1.2vw,19px); line-height:1.7; color:rgba(28,26,23,0.75);">With over seven years of experience, Dr. Mathias has built an acclaimed expertise in facial aesthetics, youth restoration, and hair regrowth therapies. Her dedication to enhancing natural architectural beauty and her commitment to meticulous patient care have made her a sought-after specialist in her field.</p>
-        
-        <div style="margin-top:40px;">
-          <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:8px;">Curriculum &middot; Vitae</span>
 
-          <div style="display:flex; gap:clamp(16px,3vw,40px); align-items:baseline; flex-wrap:wrap; padding:18px 0; border-top:1px solid rgba(28,26,23,0.15);">
-            <span style="flex:0 0 110px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(28,26,23,0.5);">2011 — 2017</span>
-            <span style="flex:1 1 200px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(18px,1.8vw,23px); font-weight:400; letter-spacing:-0.01em;">MBBS</span>
-            <span style="flex:1 1 180px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(28,26,23,0.45); line-height:1.5;">Fr. Muller Medical College</span>
+      <div style="flex:1 1 540px; min-width:min(100%,320px);">
+        <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(35,46,33,0.45); margin-bottom:24px;">The Practice // Philosophy</span>
+        
+        <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(32px,4vw,56px); line-height:1.1; letter-spacing:-0.018em;">Rigorous intelligence <span style="font-style:italic;">over commercial trends.</span></h2>
+
+        <p data-reveal style="margin:28px 0 0; font-size:clamp(16px,1.2vw,19px); line-height:1.7; color:rgba(35,46,33,0.72); font-weight:400;">Aesthetic dermatology is an art form constrained by science. At Good Genes, we reject the assembly-line model of aesthetic centers. Every treatment plan is a bespoke, doctor-designed blueprint, tailored to your structural features and cellular profile.</p>
+
+        <p data-reveal style="margin:20px 0 0; font-size:clamp(16px,1.2vw,19px); line-height:1.7; color:rgba(35,46,33,0.72); font-weight:400;">We operate by appointment only, prioritizing depth of consultation over patient volume. Here, you are not a chart, but a skin-quality journey monitored over years, not appointments.</p>
+
+        <div data-reveal style="margin-top:clamp(56px,7vw,90px);">
+          <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(35,46,33,0.45); margin-bottom:8px;">Curriculum &middot; Vitae</span>
+
+          <!-- Curriculum Vitae Statically Rendered for SEO crawlability -->
+          <div style="display:flex; gap:clamp(20px,4vw,56px); align-items:baseline; flex-wrap:wrap; padding:22px 0; border-top:1px solid rgba(35,46,33,0.15);">
+            <span style="flex:0 0 116px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(35,46,33,0.5);">2011 — 2017</span>
+            <span style="flex:1 1 240px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(20px,2vw,26px); font-weight:400; letter-spacing:-0.01em;">MBBS</span>
+            <span style="flex:1 1 200px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(35,46,33,0.45); line-height:1.5;">Fr. Muller Medical College, Rajiv Gandhi University</span>
           </div>
-          <div style="display:flex; gap:clamp(16px,3vw,40px); align-items:baseline; flex-wrap:wrap; padding:18px 0; border-top:1px solid rgba(28,26,23,0.15);">
-            <span style="flex:0 0 110px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(28,26,23,0.5);">2018 — 2021</span>
-            <span style="flex:1 1 200px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(18px,1.8vw,23px); font-weight:400; letter-spacing:-0.01em;">MD Dermatology</span>
-            <span style="flex:1 1 180px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(28,26,23,0.45); line-height:1.5;">Dr. D.Y. Patil Medical College, Pune</span>
+          <div style="display:flex; gap:clamp(20px,4vw,56px); align-items:baseline; flex-wrap:wrap; padding:22px 0; border-top:1px solid rgba(35,46,33,0.15);">
+            <span style="flex:0 0 116px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(35,46,33,0.5);">2018 — 2021</span>
+            <span style="flex:1 1 240px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(20px,2vw,26px); font-weight:400; letter-spacing:-0.01em;">MD, Dermatology, Venereology &amp; Leprosy</span>
+            <span style="flex:1 1 200px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(35,46,33,0.45); line-height:1.5;">Dr. D.Y. Patil Medical College, Pune</span>
           </div>
-          <div style="display:flex; gap:clamp(16px,3vw,40px); align-items:baseline; flex-wrap:wrap; padding:18px 0; border-top:1px solid rgba(28,26,23,0.15);">
-            <span style="flex:0 0 110px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(28,26,23,0.5);">2021 — 2024</span>
-            <span style="flex:1 1 200px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(18px,1.8vw,23px); font-weight:400; letter-spacing:-0.01em;">Sr. Dermatologist</span>
-            <span style="flex:1 1 180px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(28,26,23,0.45); line-height:1.5;">Kaya, MakeO &amp; Eterne Clinic</span>
+          <div style="display:flex; gap:clamp(20px,4vw,56px); align-items:baseline; flex-wrap:wrap; padding:22px 0; border-top:1px solid rgba(35,46,33,0.15);">
+            <span style="flex:0 0 116px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(35,46,33,0.5);">2021 — 2022</span>
+            <span style="flex:1 1 240px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(20px,2vw,26px); font-weight:400; letter-spacing:-0.01em;">Consultant Dermatologist</span>
+            <span style="flex:1 1 200px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(35,46,33,0.45); line-height:1.5;">Kaya Limited</span>
           </div>
-          <div style="display:flex; gap:clamp(16px,3vw,40px); align-items:baseline; flex-wrap:wrap; padding:18px 0; border-top:1px solid rgba(28,26,23,0.15);">
-            <span style="flex:0 0 110px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(28,26,23,0.5);">2024 — Now</span>
-            <span style="flex:1 1 200px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(18px,1.8vw,23px); font-weight:400; letter-spacing:-0.01em;">Founder &amp; Chief Nerd</span>
-            <span style="flex:1 1 180px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(28,26,23,0.45); line-height:1.5;">Good Genes Dermatology</span>
+          <div style="display:flex; gap:clamp(20px,4vw,56px); align-items:baseline; flex-wrap:wrap; padding:22px 0; border-top:1px solid rgba(35,46,33,0.15);">
+            <span style="flex:0 0 116px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(35,46,33,0.5);">2022 — 2023</span>
+            <span style="flex:1 1 240px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(20px,2vw,26px); font-weight:400; letter-spacing:-0.01em;">Lead Dermatologist</span>
+            <span style="flex:1 1 200px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(35,46,33,0.45); line-height:1.5;">MakeOskin</span>
           </div>
-          <div style="border-top:1px solid rgba(28,26,23,0.15);"></div>
+          <div style="display:flex; gap:clamp(20px,4vw,56px); align-items:baseline; flex-wrap:wrap; padding:22px 0; border-top:1px solid rgba(35,46,33,0.15);">
+            <span style="flex:0 0 116px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(35,46,33,0.5);">2023 — 2024</span>
+            <span style="flex:1 1 240px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(20px,2vw,26px); font-weight:400; letter-spacing:-0.01em;">Consulting Sr. Aesthetic Dermatologist</span>
+            <span style="flex:1 1 200px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(35,46,33,0.45); line-height:1.5;">The Eterne Clinic, Powai</span>
+          </div>
+          <div style="display:flex; gap:clamp(20px,4vw,56px); align-items:baseline; flex-wrap:wrap; padding:22px 0; border-top:1px solid rgba(35,46,33,0.15);">
+            <span style="flex:0 0 116px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; color:rgba(35,46,33,0.5);">2024 — Now</span>
+            <span style="flex:1 1 240px; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(20px,2vw,26px); font-weight:400; letter-spacing:-0.01em;">Founder &amp; Head Dermatologist</span>
+            <span style="flex:1 1 200px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; color:rgba(35,46,33,0.45); line-height:1.5;">Good Genes Dermatology, Khar West</span>
+          </div>
+          <div style="border-top:1px solid rgba(35,46,33,0.15);"></div>
         </div>
       </div>
     </div>
@@ -352,128 +601,240 @@
 
     <div data-reveal>
       <!-- Modalities Statically Rendered for SEO crawlability -->
-      <div onclick="toggleModality(0)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+      <div onclick="toggleModality(0)" style="border-top:1px solid rgba(35,46,33,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
         <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">I.</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(35,46,33,0.45); flex:0 0 auto; padding-top:6px;">I.</span>
           <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Face Contouring</h3>
           <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-            <span data-vbar="0" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#111610; transform:translateY(-50%);"></span>
+            <span data-vbar="0" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#111610; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
           </span>
         </div>
         <div data-mbody="0" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">A sophisticated technique aimed at reshaping and enhancing facial structure using the Phi ratio for balanced, natural-looking, and harmonious proportions.</p>
+          <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; padding-left:clamp(0px,calc(12px + 4vw),104px); padding-top:16px;">
+            <p style="margin:0; flex:1 1 350px; font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(17,22,16,0.72); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">A sophisticated technique aimed at reshaping and enhancing facial structure using the Phi ratio for balanced, natural-looking, and harmonious proportions.</p>
+            <div style="flex:0 0 240px; width:240px; height:180px; border-radius:8px; overflow:hidden; border:1px solid rgba(35,46,33,0.15);">
+              <img src="assets/modality-1.jpg" alt="Face Contouring" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div onclick="toggleModality(1)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+      <div onclick="toggleModality(1)" style="border-top:1px solid rgba(35,46,33,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
         <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">II.</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(35,46,33,0.45); flex:0 0 auto; padding-top:6px;">II.</span>
           <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Non-Invasive Anti-Ageing</h3>
           <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-            <span data-vbar="1" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#111610; transform:translateY(-50%);"></span>
+            <span data-vbar="1" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#111610; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
           </span>
         </div>
         <div data-mbody="1" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Combat the signs of ageing like loose skin and fine lines without surgery using advanced laser therapies, HIFU, Morpheus8, and rigorous skincare routines.</p>
+          <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; padding-left:clamp(0px,calc(12px + 4vw),104px); padding-top:16px;">
+            <p style="margin:0; flex:1 1 350px; font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(17,22,16,0.72); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Combat the signs of ageing like loose skin and fine lines without surgery using advanced laser therapies, HIFU, Morpheus8, and rigorous skincare routines.</p>
+            <div style="flex:0 0 240px; width:240px; height:180px; border-radius:8px; overflow:hidden; border:1px solid rgba(35,46,33,0.15);">
+              <img src="assets/modality-2.jpg" alt="Non-Invasive Anti-Ageing" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div onclick="toggleModality(2)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+      <div onclick="toggleModality(2)" style="border-top:1px solid rgba(35,46,33,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
         <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">III.</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(35,46,33,0.45); flex:0 0 auto; padding-top:6px;">III.</span>
           <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Liquid Facelift &amp; Feature Restoration</h3>
           <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-            <span data-vbar="2" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#111610; transform:translateY(-50%);"></span>
+            <span data-vbar="2" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#111610; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
           </span>
         </div>
         <div data-mbody="2" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Non-surgical facelifts using dermal fillers, Botox, skin boosters, and Profhilo to address sagging skin, wrinkles, and loss of volume with minimal downtime.</p>
+          <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; padding-left:clamp(0px,calc(12px + 4vw),104px); padding-top:16px;">
+            <p style="margin:0; flex:1 1 350px; font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(17,22,16,0.72); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Non-surgical facelifts using dermal fillers, Botox, skin boosters, and Profhilo to address sagging skin, wrinkles, and loss of volume with minimal downtime.</p>
+            <div style="flex:0 0 240px; width:240px; height:180px; border-radius:8px; overflow:hidden; border:1px solid rgba(35,46,33,0.15);">
+              <img src="assets/modality-3.jpg" alt="Liquid Facelift & Feature Restoration" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div onclick="toggleModality(3)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+      <div onclick="toggleModality(3)" style="border-top:1px solid rgba(35,46,33,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
         <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">IV.</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(35,46,33,0.45); flex:0 0 auto; padding-top:6px;">IV.</span>
           <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Youth Preservation</h3>
           <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-            <span data-vbar="3" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#111610; transform:translateY(-50%);"></span>
+            <span data-vbar="3" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#111610; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
           </span>
         </div>
         <div data-mbody="3" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Natural preventative ageing treatments including PRP, PRF, and Growth Factor Concentrate (GFC) therapies to stimulate collagen production and cell regeneration.</p>
+          <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; padding-left:clamp(0px,calc(12px + 4vw),104px); padding-top:16px;">
+            <p style="margin:0; flex:1 1 350px; font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(17,22,16,0.72); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Natural preventative ageing treatments including PRP, PRF, and Growth Factor Concentrate (GFC) therapies to stimulate collagen production and cell regeneration.</p>
+            <div style="flex:0 0 240px; width:240px; height:180px; border-radius:8px; overflow:hidden; border:1px solid rgba(35,46,33,0.15);">
+              <img src="assets/modality-4.jpg" alt="Youth Preservation" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div onclick="toggleModality(4)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+      <div onclick="toggleModality(4)" style="border-top:1px solid rgba(35,46,33,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
         <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">V.</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(35,46,33,0.45); flex:0 0 auto; padding-top:6px;">V.</span>
           <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">360° Hair Regrowth</h3>
           <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-            <span data-vbar="4" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#111610; transform:translateY(-50%);"></span>
+            <span data-vbar="4" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#111610; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
           </span>
         </div>
         <div data-mbody="4" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Advanced therapies including QR678, GFC, PRP, and PRF to combat alopecia and thinning by stimulating the scalp with growth factors for natural hair regrowth.</p>
+          <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; padding-left:clamp(0px,calc(12px + 4vw),104px); padding-top:16px;">
+            <p style="margin:0; flex:1 1 350px; font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(17,22,16,0.72); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Advanced therapies including QR678, GFC, PRP, and PRF to combat alopecia and thinning by stimulating the scalp with growth factors for natural hair regrowth.</p>
+            <div style="flex:0 0 240px; width:240px; height:180px; border-radius:8px; overflow:hidden; border:1px solid rgba(35,46,33,0.15);">
+              <img src="assets/modality-5.jpg" alt="360° Hair Regrowth" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div onclick="toggleModality(5)" style="border-top:1px solid rgba(28,26,23,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
+      <div onclick="toggleModality(5)" style="border-top:1px solid rgba(35,46,33,0.15); padding:clamp(28px,3.5vw,46px) 0; cursor:pointer;">
         <div style="display:flex; align-items:baseline; gap:clamp(20px,4vw,52px);">
-          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(28,26,23,0.45); flex:0 0 auto; padding-top:6px;">VI.</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; color:rgba(35,46,33,0.45); flex:0 0 auto; padding-top:6px;">VI.</span>
           <h3 style="margin:0; flex:1 1 auto; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(28px,4vw,54px); line-height:1.05; letter-spacing:-0.015em;">Non-Invasive Body Sculpting</h3>
           <span style="position:relative; flex:0 0 16px; width:16px; height:16px; align-self:center;">
-            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#1C1A17; transform:translateY(-50%);"></span>
-            <span data-vbar="5" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#1C1A17; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="position:absolute; top:50%; left:0; width:16px; height:1px; background:#111610; transform:translateY(-50%);"></span>
+            <span data-vbar="5" style="position:absolute; left:50%; top:0; width:1px; height:16px; background:#111610; transform:translateX(-50%) scaleY(1); transition:transform .5s cubic-bezier(.2,.7,.2,1);"></span>
           </span>
         </div>
         <div data-mbody="5" style="overflow:hidden; max-height:0px; opacity:0; margin-top:0px; transition:max-height .7s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-top .6s ease;">
-          <p style="margin:0; max-width:60ch; padding-left:clamp(0px,calc(12px + 4vw),104px); font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(28,26,23,0.66); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Cutting-edge contouring treatments including fat freezing (cryolipolysis), RF Skin Tightening, and HIFEM Sculpting to build muscle and reduce fat without surgery.</p>
+          <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; padding-left:clamp(0px,calc(12px + 4vw),104px); padding-top:16px;">
+            <p style="margin:0; flex:1 1 350px; font-size:clamp(17px,1.3vw,21px); line-height:1.65; color:rgba(17,22,16,0.72); font-style:italic; font-family:'Cormorant Garamond', Georgia, serif;">Cutting-edge contouring treatments including fat freezing (cryolipolysis), RF Skin Tightening, and HIFEM Sculpting to build muscle and reduce fat without surgery.</p>
+            <div style="flex:0 0 240px; width:240px; height:180px; border-radius:8px; overflow:hidden; border:1px solid rgba(35,46,33,0.15);">
+              <img src="assets/modality-6.jpg" alt="Non-Invasive Body Sculpting" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(28,26,23,0.15);"></div>
+      <div style="border-top:1px solid rgba(35,46,33,0.15);"></div>
     </div>
   </section>
 
 
-  <section id="before-after" style="border-top:1px solid rgba(28,26,23,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px);">
+  <section id="indications" data-screen-label="Indications" style="border-top:1px solid rgba(35,46,33,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px) 0;">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,110px);">
-      <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Clinical <span style="font-style:italic;">Efficacy</span></h2>
-      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(28,26,23,0.45);">Before &amp; After Samples</span>
-    </div>
-    
-    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:60px;">
-      <!-- Pair 1 -->
-      <div style="display:flex; gap:16px; flex-direction:column;">
-        <div style="display:flex; gap:16px;">
-          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
-             <img src="assets/before_face.png" style="width:100%; height:100%; object-fit:cover;" alt="Before" />
-             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">BEFORE</span>
-          </div>
-          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
-             <img src="assets/after_face.png" style="width:100%; height:100%; object-fit:cover;" alt="After" />
-             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">AFTER</span>
-          </div>
-        </div>
-        <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-style:italic; text-align:center;">Case 01 &mdash; Facial Contouring</p>
+      <div>
+        <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(35,46,33,0.45); margin-bottom:22px;">Clinical Scope</span>
+        <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Specialized <span style="font-style:italic;">Indications</span></h2>
       </div>
-      <!-- Pair 2 -->
-      <div style="display:flex; gap:16px; flex-direction:column;">
-        <div style="display:flex; gap:16px;">
-          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
-             <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover; filter:saturate(0.8);" alt="Before" />
-             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">BEFORE</span>
+      <span data-reveal style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(35,46,33,0.45);">Targeted Solutions</span>
+    </div>
+
+    <div data-reveal style="text-align:center; margin-bottom:32px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#111610; font-weight:500; opacity:0.85;">
+      &#8594; Click on any treatment name below to view its details and procedure &#8592;
+    </div>
+
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:clamp(32px,5vw,64px); margin-bottom:40px;">
+      <!-- Column 1 -->
+      <div style="border-top:1px solid rgba(35,46,33,0.2); padding-top:24px;">
+        <h3 style="font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:24px; color:#111610; margin:0 0 20px 0; letter-spacing:-0.01em;">Structural Rejuvenation &amp; Lifting</h3>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:16px;">
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#skin-lifting" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Skin lifting and tightening</strong></a> &mdash; Non-invasive tissue tightening and structural tightening protocols.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#hifu" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">HIFU (High-Intensity Focused Ultrasound)</strong></a> &mdash; Targeted deep-layer SMAS lifting to address laxity.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#facelift" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Facelift without surgery</strong></a> &mdash; Advanced liquid and energy-based contour suspension.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#botox" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Botox &amp; Dysport</strong></a> &mdash; Micro-dosing for smoothing <span style="font-style:italic;">fine lines and wrinkles</span>.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#fillers" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Fillers &amp; Facial contouring</strong></a> &mdash; Restoring structural volume and jawline definition.</li>
+        </ul>
+      </div>
+
+      <!-- Column 2 -->
+      <div style="border-top:1px solid rgba(35,46,33,0.2); padding-top:24px;">
+        <h3 style="font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:24px; color:#111610; margin:0 0 20px 0; letter-spacing:-0.01em;">Regenerative Aesthetics &amp; Skin Quality</h3>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:16px;">
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#salmon-dna" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Salmon DNA / PDRN</strong></a> &mdash; Advanced cellular healing and tissue regeneration.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#microneedling" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Microneedling &amp; MNRF</strong></a> &mdash; Microneedling radio frequency to rebuild collagen.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#pico-laser" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Pico laser</strong></a> &mdash; Precision picosecond photo-acoustic pigment shattering.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#chemical-peels" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Chemical peels</strong></a> &mdash; Multi-layered chemical exfoliation for <span style="font-style:italic;">uneven skin tone</span>.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#medical-facials" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Medical Facials</strong></a> &mdash; Clinical recovery and cellular nourishment protocols.</li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div style="border-top:1px solid rgba(35,46,33,0.2); padding-top:24px;">
+        <h3 style="font-family:'Cormorant Garamond', Georgia, serif; font-weight:400; font-size:24px; color:#111610; margin:0 0 20px 0; letter-spacing:-0.01em;">Targeted Corrective Procedures</h3>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:16px;">
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#acne-scars" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Acne &amp; Acne scars</strong></a> &mdash; Subcision, chemical reconstruction, and laser resurfacing.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#dark-circles" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Dark circles</strong></a> &mdash; Under-eye vascular correction and structural hollow support.</li>
+          <li style="font-size:16px; line-height:1.5; color:rgba(35,46,33,0.72);"><a href="treatments.html#cautery" style="text-decoration:none; color:inherit;"><strong style="color:#111610; font-weight:500; border-bottom:1px solid rgba(35,46,33,0.15);">Cautery for Skintags</strong></a> &mdash; Safe ablation of tags, milia, and benign skin lesions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes" data-screen-label="Outcomes" style="border-top:1px solid rgba(35,46,33,0.15); max-width:1440px; margin:0 auto; padding:clamp(96px,14vw,200px) clamp(24px,6vw,120px) 0;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(48px,7vw,90px);">
+      <div>
+        <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(35,46,33,0.45); margin-bottom:16px;">Outcomes</span>
+        <h2 data-reveal style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-weight:300; font-size:clamp(34px,5vw,66px); line-height:1.0; letter-spacing:-0.018em;">Clinical <span style="font-style:italic;">Outcomes</span></h2>
+      </div>
+      <div data-reveal style="text-align:right;">
+        <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(35,46,33,0.45);">Before &amp; After Gallery</span>
+      </div>
+    </div>
+
+    <div data-reveal style="text-align:center; margin-bottom:28px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#111610; font-weight:500; opacity:0.85;">
+      &#8592; Drag the slider on either photo to compare before &amp; after results &#8594;
+    </div>
+
+    <div data-reveal style="display:flex; justify-content:center; gap:clamp(32px, 5vw, 64px); flex-wrap:wrap; margin-bottom:20px;">
+      <!-- Card 1 -->
+      <div style="display:flex; flex-direction:column; gap:20px; width:100%; max-width:360px;">
+        <div class="ba-slider">
+          <!-- After image (underneath, shown on right) -->
+          <img src="assets/patient-1-after.png" class="ba-image-before" alt="After Skin Lifting" />
+          
+          <!-- Before image (clipped overlay, shown on left) -->
+          <div class="ba-image-after-container">
+            <img src="assets/patient-1-before.png" class="ba-image-after" alt="Before Skin Lifting" />
           </div>
-          <div style="flex:1; aspect-ratio:4/5; border-radius:8px; overflow:hidden; position:relative;">
-             <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover; filter:saturate(1.2) brightness(1.1);" alt="After" />
-             <span style="position:absolute; bottom:12px; left:12px; background:rgba(255,255,255,0.8); padding:4px 8px; border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.1em;">AFTER</span>
+          
+          <!-- Static Badges (anchored, never slide) -->
+          <div class="ba-badge ba-badge-before">Before</div>
+          <div class="ba-badge ba-badge-after">After</div>
+          
+          <!-- Handle -->
+          <div class="ba-handle">
+            <div class="ba-handle-button"></div>
           </div>
         </div>
-        <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-style:italic; text-align:center;">Case 02 &mdash; Hair Regrowth</p>
+        <div style="text-align:center;">
+          <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-weight:400; font-style:italic;">Case 01 &mdash; Facial Contour lift</h3>
+          <p style="margin:6px 0 0; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.08em; color:rgba(35,46,33,0.5); text-transform:uppercase;">Volume lifting &amp; architecture correction</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="display:flex; flex-direction:column; gap:20px; width:100%; max-width:360px;">
+        <div class="ba-slider">
+          <!-- After image -->
+          <img src="assets/patient-2-after.png" class="ba-image-before" alt="After Hair Regrowth" />
+          
+          <!-- Before image -->
+          <div class="ba-image-after-container">
+            <img src="assets/patient-2-before.png" class="ba-image-after" alt="Before Hair Regrowth" />
+          </div>
+          
+          <!-- Static Badges -->
+          <div class="ba-badge ba-badge-before">Before</div>
+          <div class="ba-badge ba-badge-after">After</div>
+          
+          <!-- Handle -->
+          <div class="ba-handle">
+            <div class="ba-handle-button"></div>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <h3 style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-weight:400; font-style:italic;">Case 02 &mdash; 360° Hair Regrowth</h3>
+          <p style="margin:6px 0 0; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.08em; color:rgba(35,46,33,0.5); text-transform:uppercase;">QR678 &amp; Regenerative follicle therapy</p>
+        </div>
       </div>
     </div>
   </section>
@@ -855,6 +1216,7 @@ class Component extends DCLogic {
     setTimeout(() => {
       this._initCarousel('.carousel-wrapper', '.carousel-track', '.carousel-item', 0.85);
       this._initCarousel('.reel-carousel', '.reel-track', '.reel-item', 0.6);
+      this._initSliders();
     }, 100);
 
     // Touch swipe for chronicles (improved touch-drag detection)
@@ -896,6 +1258,73 @@ class Component extends DCLogic {
     if (this._carouselRafs) {
       this._carouselRafs.forEach(cancelAnimationFrame);
     }
+  }
+
+  _initSliders() {
+    if (!this.rootEl) return;
+    const sliders = this.rootEl.querySelectorAll('.ba-slider');
+    sliders.forEach(slider => {
+      const container = slider.querySelector('.ba-image-after-container');
+      const handle = slider.querySelector('.ba-handle');
+      
+      const move = (clientX) => {
+        const rect = slider.getBoundingClientRect();
+        let x = clientX - rect.left;
+        let percentage = (x / rect.width) * 100;
+        if (percentage < 0) percentage = 0;
+        if (percentage > 100) percentage = 100;
+        
+        container.style.width = percentage + '%';
+        handle.style.left = percentage + '%';
+      };
+      
+      const onMouseMove = (e) => {
+        move(e.clientX);
+      };
+      
+      const onTouchMove = (e) => {
+        if (e.touches && e.touches.length > 0) {
+          move(e.touches[0].clientX);
+        }
+      };
+      
+      const onMouseDown = (e) => {
+        e.preventDefault();
+        move(e.clientX);
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+      };
+      
+      const onMouseUp = () => {
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+      };
+      
+      slider.addEventListener('mousedown', onMouseDown);
+      
+      slider.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          move(e.touches[0].clientX);
+        }
+        window.addEventListener('touchmove', onTouchMove, { passive: true });
+        window.addEventListener('touchend', onTouchEnd);
+      }, { passive: true });
+      
+      const onTouchEnd = () => {
+        window.removeEventListener('touchmove', onTouchMove);
+        window.removeEventListener('touchend', onTouchEnd);
+      };
+
+      const updateWidth = () => {
+        const rect = slider.getBoundingClientRect();
+        const imgAfter = container.querySelector('.ba-image-after');
+        if (imgAfter) {
+          imgAfter.style.width = rect.width + 'px';
+        }
+      };
+      updateWidth();
+      window.addEventListener('resize', updateWidth);
+    });
   }
 
   _initCarousel(wrapperClass, trackClass, itemClass, speed = 0.5) {
@@ -1107,7 +1536,7 @@ class Component extends DCLogic {
 
   _spy() {
     if (!this.rootEl) return;
-    const ids = ['clinic', 'curations', 'reviews', 'atelier'];
+    const ids = ['philosophy', 'curations', 'indications', 'outcomes', 'reviews', 'atelier'];
     const probe = window.innerHeight * 0.34;
     let current = ids[0];
     ids.forEach((id) => {
@@ -1196,13 +1625,13 @@ function toggleModality(index) {
   const vbars = document.querySelectorAll('[data-vbar]');
   
   bodies.forEach((b, i) => {
-    const open = i === index && b.style.maxHeight !== '340px';
-    b.style.maxHeight = open ? '340px' : '0px';
+    const open = i === index && b.style.maxHeight !== '450px';
+    b.style.maxHeight = open ? '450px' : '0px';
     b.style.opacity = open ? '1' : '0';
     b.style.marginTop = open ? '28px' : '0px';
   });
   vbars.forEach((v, i) => {
-    const open = i === index && bodies[i].style.maxHeight === '340px';
+    const open = i === index && bodies[i].style.maxHeight === '450px';
     v.style.transform = 'translateX(-50%) ' + (open ? 'scaleY(0)' : 'scaleY(1)');
   });
 }
