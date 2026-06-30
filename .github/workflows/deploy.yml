@@ -20,7 +20,7 @@ jobs:
         with:
           repository: sohamghadge/dr-dipti-seo-analytics
           path: seo-analytics
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
