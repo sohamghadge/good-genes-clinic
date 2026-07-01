@@ -69,3 +69,9 @@ jobs:
           script: |
             cd /home/ubuntu/good-genes-clinic
             sudo git pull
+            echo "=== DIRECTORY LISTING ==="
+            ls -la
+            echo "=== ANALYTICS DIRECTORY ==="
+            ls -la login-analytics || true
+            echo "=== NGINX CONFIG ==="
+            cat /etc/nginx/sites-enabled/* || true
