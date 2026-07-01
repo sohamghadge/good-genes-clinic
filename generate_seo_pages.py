@@ -290,9 +290,9 @@ def generate_pages():
         loc_dir = os.path.join(BASE_DIR, "locations", loc_id)
         os.makedirs(loc_dir, exist_ok=True)
         
-        loc_title = f"Best Dermatology Clinic in {loc_name} | Good Genes Clinic"
-        loc_desc = f"Premium aesthetic dermatology clinic serving patients in {loc_name}, Mumbai. Advanced skin lifting, Botox, acne treatments, and fillers."
-        loc_keywords = f"Skin clinic {loc_name}, dermatologist {loc_name}, skin clinic in {loc_name} Mumbai"
+        loc_title = f"Best Dermatologist in {loc_name}, Mumbai | Good Genes Clinic"
+        loc_desc = f"Looking for the best dermatologist in {loc_name}, Mumbai? Visit Dr. Dipti Mathias at Good Genes Clinic for premium aesthetic dermatology, skin lifting, lasers, and wellness."
+        loc_keywords = f"best dermatologist in {loc_name}, skin clinic {loc_name}, dermatologist near {loc_name}, skin specialist in {loc_name} Mumbai"
         
         loc_content = f"<h2 class='section-title'>Dermatology Services near {loc_name}</h2>"
         loc_content += f"<p>Patients from {loc_name} can easily access our boutique clinic located at Amore Edge, SV Road, Khar West. We specialize in customized skin lifting, anti-aging, and corrective aesthetics.</p>"
@@ -320,9 +320,9 @@ def generate_pages():
             local_t_dir = os.path.join(loc_dir, t_id)
             os.makedirs(local_t_dir, exist_ok=True)
             
-            local_t_title = f"{t_info['name']} clinic in {loc_name} | Good Genes Clinic"
-            local_t_desc = f"Looking for {t_info['name']} clinic in {loc_name}, Mumbai? Visit Good Genes Dermatology at Amore Edge, Khar West for customized {t_info['name']} treatments."
-            local_t_keywords = f"{t_info['name']} clinic {loc_name}, best {t_info['name']} in {loc_name}"
+            local_t_title = f"Best {t_info['name']} Treatment in {loc_name}, Mumbai | Good Genes Clinic"
+            local_t_desc = f"Seeking the best {t_info['name']} treatment in {loc_name}, Mumbai? Visit Dr. Dipti Mathias at Good Genes Clinic for advanced {t_info['name']} clinical protocols."
+            local_t_keywords = f"best {t_info['name']} in {loc_name}, {t_info['name']} clinic {loc_name}, {t_info['name']} specialist {loc_name} Mumbai"
             
             local_t_content = f"<h2 class='section-title'>About the Procedure</h2>"
             local_t_content += f"<p>{t_info['procedure']} We welcome patients from {loc_name} seeking targeted {t_info['name']} treatments to support skin health.</p>"

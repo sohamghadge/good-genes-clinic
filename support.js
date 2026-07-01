@@ -637,6 +637,17 @@
         if ((k === "value" || k === "checked") && v === void 0) {
           v = k === "checked" ? false : "";
         }
+        if (k.startsWith("on") && typeof v === "string") {
+          const rawCode = v;
+          v = (event) => {
+            try {
+              window.event = event;
+              new Function(rawCode)();
+            } catch (err) {
+              console.error("Failed to execute event handler:", rawCode, err);
+            }
+          };
+        }
         props[k] = v;
       }
       if (pseudoClasses.length) {
