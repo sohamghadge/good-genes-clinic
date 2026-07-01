@@ -27,7 +27,9 @@ jobs:
           node-version: 20
 
       - name: Install deps
-        run: cd seo-analytics && npm install --production=false --legacy-peer-deps
+        run: |
+          rm -f seo-analytics/package-lock.json
+          cd seo-analytics && npm install --include=dev --legacy-peer-deps
 
       - name: Fetch GA4 data and update mock-data.ts
         run: |
