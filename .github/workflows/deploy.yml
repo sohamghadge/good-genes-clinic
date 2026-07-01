@@ -30,7 +30,7 @@ jobs:
         run: |
           rm -f seo-analytics/package-lock.json
           cd seo-analytics
-          npm install googleapis --legacy-peer-deps
+          npm install googleapis react-is --legacy-peer-deps
           npm install --include=dev --legacy-peer-deps
 
       - name: Fetch GA4 data and update mock-data.ts
