@@ -142,8 +142,8 @@ async function main() {
 
   // ── Search Console: query data (try both URL formats) ────────────────────
   const siteUrlsToTry = [
-    'https://good-genes-clinic.com/',
-    'sc-domain:good-genes-clinic.com',
+    'https://good-genes.com/',
+    'sc-domain:good-genes.com',
   ];
 
   let scOverall = null;
