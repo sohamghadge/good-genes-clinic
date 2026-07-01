@@ -46,7 +46,7 @@ jobs:
       - name: Copy build to portfolio
         run: |
           rm -rf login-analytics
-          cp -r seo-analytics/.output/public login-analytics
+          cp -r seo-analytics/dist login-analytics
 
       - name: Commit and push if changed
         run: |
