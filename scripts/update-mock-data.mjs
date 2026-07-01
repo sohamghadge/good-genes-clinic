@@ -93,6 +93,15 @@ async function main() {
           { name: "userEngagementDuration" },
         ],
         orderBys: [{ dimension: { dimensionName: "date" } }],
+        dimensionFilter: {
+          filter: {
+            fieldName: "hostName",
+            stringFilter: {
+              value: "good-genes-clinic.com",
+              matchType: "EXACT"
+            }
+          }
+        }
       },
     }),
     api.properties.runReport({
@@ -104,6 +113,15 @@ async function main() {
           { name: "totalUsers" },
           { name: "userEngagementDuration" },
         ],
+        dimensionFilter: {
+          filter: {
+            fieldName: "hostName",
+            stringFilter: {
+              value: "good-genes-clinic.com",
+              matchType: "EXACT"
+            }
+          }
+        }
       },
     }),
     api.properties.runReport({
@@ -113,6 +131,15 @@ async function main() {
         dimensions: [{ name: "sessionDefaultChannelGroup" }],
         metrics: [{ name: "sessions" }],
         orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
+        dimensionFilter: {
+          filter: {
+            fieldName: "hostName",
+            stringFilter: {
+              value: "good-genes-clinic.com",
+              matchType: "EXACT"
+            }
+          }
+        }
       },
     }),
     api.properties.runReport({
@@ -123,6 +150,15 @@ async function main() {
         metrics: [{ name: "sessions" }, { name: "userEngagementDuration" }],
         orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
         limit: 10,
+        dimensionFilter: {
+          filter: {
+            fieldName: "hostName",
+            stringFilter: {
+              value: "good-genes-clinic.com",
+              matchType: "EXACT"
+            }
+          }
+        }
       },
     }),
   ]);
