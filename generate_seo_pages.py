@@ -5,7 +5,7 @@ from xml.dom import minidom
 
 # Base Configurations
 BASE_DIR = "/Users/sohamghadge/Desktop/Projects/work/Good Genes Clinic"
-DOMAIN = "https://goodgenes.in"
+DOMAIN = "https://good-genes-clinic.com"
 
 TREATMENTS = {
     "botox": {
@@ -270,9 +270,9 @@ def generate_pages():
                 "@type": "MedicalBusiness",
                 "name": "Good Genes Clinic",
                 "description": f"Premium aesthetic dermatology and wellness treatments (including {t_info['name']}) by Dr. Dipti Mathias in Khar West, Mumbai.",
-                "url": f"https://goodgenes.in/treatments/{t_id}/" if a_id == "guide" else f"https://goodgenes.in/treatments/{t_id}/{a_id}/",
-                "logo": "https://goodgenes.in/assets/logo.png",
-                "image": "https://goodgenes.in/assets/real-doctor.png",
+                "url": f"{DOMAIN}/treatments/{t_id}/" if a_id == "guide" else f"{DOMAIN}/treatments/{t_id}/{a_id}/",
+                "logo": f"{DOMAIN}/assets/logo.png",
+                "image": f"{DOMAIN}/assets/real-doctor.png",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "14th Floor, Amore Edge, 1402 Swami Vivekananda Road",
@@ -285,7 +285,7 @@ def generate_pages():
                 "medicalSpecialty": "Dermatology",
                 "founder": {
                     "@type": "Physician",
-                    "@id": "https://goodgenes.in/#doctor",
+                    "@id": f"{DOMAIN}/#doctor",
                     "name": "Dr. Dipti Mathias"
                 }
             }
@@ -333,9 +333,9 @@ def generate_pages():
             "@type": "MedicalBusiness",
             "name": f"Good Genes Clinic - {loc_name}",
             "description": f"Premium aesthetic dermatology, wellness and aesthetics treatments for patients in {loc_name}, Mumbai.",
-            "url": f"https://goodgenes.in/locations/{loc_id}/",
-            "logo": "https://goodgenes.in/assets/logo.png",
-            "image": "https://goodgenes.in/assets/real-doctor.png",
+            "url": f"{DOMAIN}/locations/{loc_id}/",
+            "logo": f"{DOMAIN}/assets/logo.png",
+            "image": f"{DOMAIN}/assets/real-doctor.png",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": loc_name,
@@ -346,7 +346,7 @@ def generate_pages():
             "medicalSpecialty": "Dermatology",
             "founder": {
                 "@type": "Physician",
-                "@id": "https://goodgenes.in/#doctor",
+                "@id": f"{DOMAIN}/#doctor",
                 "name": "Dr. Dipti Mathias"
             }
         }
@@ -388,9 +388,9 @@ def generate_pages():
                 "@type": "MedicalBusiness",
                 "name": f"Good Genes Clinic - {t_info['name']} in {loc_name}",
                 "description": f"Premium aesthetic dermatology treatments (including {t_info['name']}) for patients in {loc_name}, Mumbai under dermatologist Dr. Dipti Mathias.",
-                "url": f"https://goodgenes.in/locations/{loc_id}/{t_id}/",
-                "logo": "https://goodgenes.in/assets/logo.png",
-                "image": "https://goodgenes.in/assets/real-doctor.png",
+                "url": f"{DOMAIN}/locations/{loc_id}/{t_id}/",
+                "logo": f"{DOMAIN}/assets/logo.png",
+                "image": f"{DOMAIN}/assets/real-doctor.png",
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": loc_name,
@@ -401,7 +401,7 @@ def generate_pages():
                 "medicalSpecialty": "Dermatology",
                 "founder": {
                     "@type": "Physician",
-                    "@id": "https://goodgenes.in/#doctor",
+                    "@id": f"{DOMAIN}/#doctor",
                     "name": "Dr. Dipti Mathias"
                 }
             }

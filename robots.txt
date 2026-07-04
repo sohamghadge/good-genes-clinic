@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://goodgenes.in/sitemap.xml
+Sitemap: https://good-genes-clinic.com/sitemap.xml
