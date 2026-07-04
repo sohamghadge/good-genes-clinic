@@ -36,6 +36,8 @@ jobs:
           npm install --include=dev --legacy-peer-deps
 
       - name: Fetch GA4 data and update mock-data.ts
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
         run: |
           cp -r scripts seo-analytics/scripts
           cd seo-analytics && node scripts/update-mock-data.mjs
