@@ -158,6 +158,51 @@ async function fetchInstagramData(token) {
     } catch (e) {
       console.error("⚠️ Profile views insights fetch failed:", e.message);
     }
+
+    // Fetch accounts engaged
+    let totalEngaged = 0;
+    try {
+      const engagedUrl = `https://graph.facebook.com/v20.0/${igId}/insights?metric=accounts_engaged&period=day&access_token=${token}`;
+      const engagedRes = await fetch(engagedUrl);
+      const engagedData = await engagedRes.json();
+      if (engagedData.data && engagedData.data[0] && engagedData.data[0].values) {
+        for (const val of engagedData.data[0].values) {
+          totalEngaged += val.value || 0;
+        }
+      }
+    } catch (e) {
+      console.error("⚠️ Accounts engaged insights fetch failed:", e.message);
+    }
+
+    // Fetch total interactions
+    let totalInteractions = 0;
+    try {
+      const interactionsUrl = `https://graph.facebook.com/v20.0/${igId}/insights?metric=total_interactions&period=day&access_token=${token}`;
+      const interactionsRes = await fetch(interactionsUrl);
+      const interactionsData = await interactionsRes.json();
+      if (interactionsData.data && interactionsData.data[0] && interactionsData.data[0].values) {
+        for (const val of interactionsData.data[0].values) {
+          totalInteractions += val.value || 0;
+        }
+      }
+    } catch (e) {
+      console.error("⚠️ Total interactions insights fetch failed:", e.message);
+    }
+
+    // Fetch website clicks (requires metric_type=total_value)
+    let totalClicks = 0;
+    try {
+      const clicksUrl = `https://graph.facebook.com/v20.0/${igId}/insights?metric=website_clicks&metric_type=total_value&period=day&access_token=${token}`;
+      const clicksRes = await fetch(clicksUrl);
+      const clicksData = await clicksRes.json();
+      if (clicksData.data && clicksData.data[0] && clicksData.data[0].values) {
+        for (const val of clicksData.data[0].values) {
+          totalClicks += val.value || 0;
+        }
+      }
+    } catch (e) {
+      console.error("⚠️ Website clicks insights fetch failed:", e.message);
+    }
     
     // Fetch demographics (cities, gender, age) using v20.0 follower_demographics metric
     let cities = [];
@@ -273,12 +318,17 @@ async function fetchInstagramData(token) {
     const posts = [];
     for (const item of mediaData.data || []) {
       let reach = 0;
+      let views = 0;
       try {
-        const mediaInsightsUrl = `https://graph.facebook.com/v20.0/${item.id}/insights?metric=reach&access_token=${token}`;
+        const mediaInsightsUrl = `https://graph.facebook.com/v20.0/${item.id}/insights?metric=reach,views&access_token=${token}`;
         const miRes = await fetch(mediaInsightsUrl);
         const miData = await miRes.json();
+        
         const reachVal = (miData.data || []).find(m => m.name === 'reach');
         reach = reachVal?.values?.[0]?.value || 0;
+        
+        const viewsVal = (miData.data || []).find(m => m.name === 'views');
+        views = viewsVal?.values?.[0]?.value || 0;
       } catch (e) {
         // ignore
       }
@@ -291,19 +341,22 @@ async function fetchInstagramData(token) {
         comments: item.comments_count || 0,
         saves: 0,
         shares: 0,
-        reach: reach
+        reach: reach,
+        views: views
       });
     }
     
     return {
       reach: totalReach || 170,
       reachDelta: 0,
-      engaged: Math.round(totalReach * 0.08) || 13,
+      engaged: totalEngaged || 13,
       engagedDelta: 0,
       profileVisits: totalViews || 271,
       visitsDelta: 0,
       followers,
       followersDelta: 0,
+      websiteClicks: totalClicks || 8,
+      interactions: totalInteractions || 42,
       reachTrend: reachTrend.length ? reachTrend : null,
       posts: posts.length ? posts : null,
       ageBands: ageBands.length ? ageBands : null,
@@ -517,6 +570,8 @@ export const instagram = {
   visitsDelta: ${igData.visitsDelta},
   followers: ${igData.followers},
   followersDelta: ${igData.followersDelta},
+  websiteClicks: ${igData.websiteClicks},
+  interactions: ${igData.interactions},
   reachTrend: ${JSON.stringify(igData.reachTrend || [], null, 2)},
   posts: ${JSON.stringify(igData.posts || [], null, 2)},
   ageBands: ${JSON.stringify(igData.ageBands || [], null, 2)},
