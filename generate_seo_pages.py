@@ -265,7 +265,33 @@ def generate_pages():
                 ]
             }
             
-            schema_str = f"<script type=\"application/ld+json\">\n{json.dumps(faq_schema, indent=2)}\n</script>"
+            local_business_schema = {
+                "@context": "https://schema.org",
+                "@type": "MedicalBusiness",
+                "name": "Good Genes Clinic",
+                "description": f"Premium aesthetic dermatology and wellness treatments (including {t_info['name']}) by Dr. Dipti Mathias in Khar West, Mumbai.",
+                "url": f"https://goodgenes.in/treatments/{t_id}/" if a_id == "guide" else f"https://goodgenes.in/treatments/{t_id}/{a_id}/",
+                "logo": "https://goodgenes.in/assets/logo.png",
+                "image": "https://goodgenes.in/assets/real-doctor.png",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "14th Floor, Amore Edge, 1402 Swami Vivekananda Road",
+                    "addressLocality": "Khar West",
+                    "addressRegion": "Mumbai",
+                    "postalCode": "400052",
+                    "addressCountry": "IN"
+                },
+                "telephone": "+919004185406",
+                "medicalSpecialty": "Dermatology",
+                "founder": {
+                    "@type": "Physician",
+                    "@id": "https://goodgenes.in/#doctor",
+                    "name": "Dr. Dipti Mathias"
+                }
+            }
+            
+            schema_array = [local_business_schema, faq_schema]
+            schema_str = f"<script type=\"application/ld+json\">\n{json.dumps(schema_array, indent=2)}\n</script>"
             
             # Replace template tokens
             page_html = template
@@ -301,11 +327,36 @@ def generate_pages():
             loc_content += f"<li><a href='/treatments/{t_id}/index.html' style='color:#1C1A17; font-weight:500;'>{t_info['name']}</a> &mdash; {t_info['description']}</li>"
         loc_content += "</ul>"
         
+        # Build Schema
+        loc_schema = {
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "name": f"Good Genes Clinic - {loc_name}",
+            "description": f"Premium aesthetic dermatology, wellness and aesthetics treatments for patients in {loc_name}, Mumbai.",
+            "url": f"https://goodgenes.in/locations/{loc_id}/",
+            "logo": "https://goodgenes.in/assets/logo.png",
+            "image": "https://goodgenes.in/assets/real-doctor.png",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": loc_name,
+                "addressRegion": "Mumbai",
+                "addressCountry": "IN"
+            },
+            "telephone": "+919004185406",
+            "medicalSpecialty": "Dermatology",
+            "founder": {
+                "@type": "Physician",
+                "@id": "https://goodgenes.in/#doctor",
+                "name": "Dr. Dipti Mathias"
+            }
+        }
+        loc_schema_str = f"<script type=\"application/ld+json\">\n{json.dumps(loc_schema, indent=2)}\n</script>"
+        
         page_html = template
         page_html = page_html.replace("{{ title }}", loc_title)
         page_html = page_html.replace("{{ description }}", loc_desc)
         page_html = page_html.replace("{{ keywords }}", loc_keywords)
-        page_html = page_html.replace("{{ schema }}", "")
+        page_html = page_html.replace("{{ schema }}", loc_schema_str)
         page_html = page_html.replace("{{ name }}", f"Dermatology Services in {loc_name}")
         page_html = page_html.replace("{{ category_link }}", '<span>Locations</span>')
         page_html = page_html.replace("{{ introduction }}", f"Serving patients from {loc_name} with premium, science-backed skin care solutions.")
@@ -331,11 +382,36 @@ def generate_pages():
                 local_t_content += f"<li>{benefit}</li>"
             local_t_content += "</ul>"
             
+            # Build Schema
+            local_t_schema = {
+                "@context": "https://schema.org",
+                "@type": "MedicalBusiness",
+                "name": f"Good Genes Clinic - {t_info['name']} in {loc_name}",
+                "description": f"Premium aesthetic dermatology treatments (including {t_info['name']}) for patients in {loc_name}, Mumbai under dermatologist Dr. Dipti Mathias.",
+                "url": f"https://goodgenes.in/locations/{loc_id}/{t_id}/",
+                "logo": "https://goodgenes.in/assets/logo.png",
+                "image": "https://goodgenes.in/assets/real-doctor.png",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": loc_name,
+                    "addressRegion": "Mumbai",
+                    "addressCountry": "IN"
+                },
+                "telephone": "+919004185406",
+                "medicalSpecialty": "Dermatology",
+                "founder": {
+                    "@type": "Physician",
+                    "@id": "https://goodgenes.in/#doctor",
+                    "name": "Dr. Dipti Mathias"
+                }
+            }
+            local_t_schema_str = f"<script type=\"application/ld+json\">\n{json.dumps(local_t_schema, indent=2)}\n</script>"
+            
             page_html = template
             page_html = page_html.replace("{{ title }}", local_t_title)
             page_html = page_html.replace("{{ description }}", local_t_desc)
             page_html = page_html.replace("{{ keywords }}", local_t_keywords)
-            page_html = page_html.replace("{{ schema }}", "")
+            page_html = page_html.replace("{{ schema }}", local_t_schema_str)
             page_html = page_html.replace("{{ name }}", f"{t_info['name']} in {loc_name}")
             page_html = page_html.replace("{{ category_link }}", f'<a href="/locations/{loc_id}">{loc_name}</a>')
             page_html = page_html.replace("{{ introduction }}", t_info['description'])

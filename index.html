@@ -31,46 +31,110 @@ const params = new URLSearchParams(window.location.search);
 <meta name="twitter:description" content="Premium dermatology, wellness and aesthetics clinic in Khar West, Mumbai.">
 <meta name="twitter:image" content="https://goodgenes.in/assets/real-doctor.png">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  "name": "Good Genes Clinic",
-  "alternateName": "Good Genes Dermatology",
-  "description": "Premium aesthetic dermatology and wellness clinic by Dr. Dipti Mathias in Khar West, Mumbai.",
-  "url": "https://goodgenes.in/",
-  "logo": "https://goodgenes.in/assets/real-doctor.png",
-  "image": "https://goodgenes.in/assets/real-doctor.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "14th Floor, Amore Edge, 1402 Swami Vivekananda Road",
-    "addressLocality": "Khar West",
-    "addressRegion": "Mumbai",
-    "postalCode": "400052",
-    "addressCountry": "IN"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Good Genes Clinic",
+    "alternateName": "Good Genes Dermatology",
+    "description": "Premium aesthetic dermatology and wellness clinic by Dr. Dipti Mathias in Khar West, Mumbai.",
+    "url": "https://goodgenes.in/",
+    "logo": "https://goodgenes.in/assets/logo.png",
+    "image": "https://goodgenes.in/assets/real-doctor.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "14th Floor, Amore Edge, 1402 Swami Vivekananda Road",
+      "addressLocality": "Khar West",
+      "addressRegion": "Mumbai",
+      "postalCode": "400052",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "19.0683",
+      "longitude": "72.8360"
+    },
+    "telephone": "+919004185406",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "11:00",
+      "closes": "19:00"
+    },
+    "medicalSpecialty": "Dermatology",
+    "founder": {
+      "@id": "https://goodgenes.in/#doctor"
+    }
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "19.0683",
-    "longitude": "72.8360"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "@id": "https://goodgenes.in/#doctor",
+    "name": "Dr. Dipti Mathias",
+    "medicalSpecialty": "Dermatology",
+    "worksFor": {
+      "@type": "MedicalBusiness",
+      "name": "Good Genes Clinic",
+      "url": "https://goodgenes.in/"
+    },
+    "knowsAbout": [
+      "Aesthetic Dermatology",
+      "Liquid Facelift",
+      "Facial Contouring",
+      "HIFU Lifting",
+      "Salmon DNA Skin Healing",
+      "Skinboosters",
+      "Botox & Dermal Fillers",
+      "PRP Hair Regrowth"
     ],
-    "opens": "10:00",
-    "closes": "19:00"
+    "description": "Consultant Dermatologist with over a decade of clinical experience in advanced aesthetics, facial contouring, and non-surgical anti-ageing protocols."
   },
-  "medicalSpecialty": "Dermatology",
-  "founder": {
-    "@type": "Person",
-    "name": "Dr. Dipti Mathias"
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the consultation process like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your initial consultation is an unhurried, comprehensive assessment of your skin architecture, concerns, and aesthetic goals. We do not rush this process. Expect a detailed discussion resulting in a bespoke protocol."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there downtime associated with treatments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Downtime varies heavily depending on the specific modality used. Many of our non-invasive skin boosters and injectables have zero to minimal downtime, while deeper laser therapies may require a few days of social downtime."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I schedule an appointment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This is entirely dependent on your bespoke protocol. For youth preservation, we generally recommend quarterly visits, while active treatments like hair regrowth may require monthly sessions initially."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer virtual consultations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we do offer virtual/online consultations. This allows us to review your history, discuss skin concerns, and map out initial treatment protocols prior to your visit."
+        }
+      }
+    ]
   }
-}
+]
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEXCS10JCC"></script>
