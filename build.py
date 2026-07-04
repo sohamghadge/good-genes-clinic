@@ -185,7 +185,7 @@ new_script_block = """    const faqData = [
       { question: 'What is the consultation process like?', answer: 'Your initial consultation is an unhurried, comprehensive assessment of your skin architecture, concerns, and aesthetic goals. We do not rush this process. Expect a detailed discussion resulting in a bespoke protocol.' },
       { question: 'Is there downtime associated with treatments?', answer: 'Downtime varies heavily depending on the specific modality used. Many of our non-invasive skin boosters and injectables have zero to minimal downtime, while deeper laser therapies may require a few days of social downtime.' },
       { question: 'How often should I schedule an appointment?', answer: 'This is entirely dependent on your bespoke protocol. For youth preservation, we generally recommend quarterly visits, while active treatments like hair regrowth may require monthly sessions initially.' },
-      { question: 'Do you offer virtual consultations?', answer: 'We believe aesthetic dermatology requires precise, in-person assessment of skin quality, laxity, and structural anatomy. Therefore, we only consult in-clinic.' }
+      { question: 'Do you offer virtual consultations?', answer: 'Yes, we do offer virtual/online consultations. This allows us to review your history, discuss skin concerns, and map out initial treatment protocols prior to your visit.' }
     ];
     const faqs = faqData.map((f, i) => ({
       question: f.question,
