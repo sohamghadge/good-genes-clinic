@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Treatments | Dr. Dipti Mathias</title>
+  <script>
+  // Lead attribution: save incoming UTM values in sessionStorage
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(p => {
+    if (params.has(p)) {
+      sessionStorage.setItem(p, params.get(p));
+    }
+  });
+  </script>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <meta name="description" content="Explore detailed treatment protocols for non-invasive skin lifting, hair restoration, and advanced cellular aesthetics under Dr. Dipti Mathias in Khar West, Mumbai.">

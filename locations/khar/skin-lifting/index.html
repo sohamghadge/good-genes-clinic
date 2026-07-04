@@ -5,6 +5,13 @@
   if(window.location.pathname.startsWith('/login-analytics')&&!window.location.pathname.endsWith('.html')){
     window.location.replace('/login-analytics/index.html'+window.location.hash);
   }
+  // Lead attribution: save incoming UTM values in sessionStorage
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(p => {
+    if (params.has(p)) {
+      sessionStorage.setItem(p, params.get(p));
+    }
+  });
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -229,19 +236,19 @@
       <div style="display:flex; gap:clamp(40px,6vw,96px); flex-wrap:wrap;">
         <div style="flex:1 1 240px; min-width:min(100%,220px);">
           <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:24px;">The Atelier</span>
-          <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(21px,2.2vw,28px); line-height:1.4; font-weight:400;">4th Floor, Amore Edge,<br>1402 Swami Vivekananda Road,<br>Khar West, Mumbai.</p>
-          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; line-height:1.8; color:rgba(28,26,23,0.5);">Single-doctor boutique clinic.<br>Maharashtra Medical Council<br>Reg. No. 2021076814</p>
+          <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(21px,2.2vw,28px); line-height:1.4; font-weight:400;">14th Floor, Amore Edge,<br>1402 Swami Vivekananda Road,<br>Khar West, Mumbai.</p>
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; line-height:1.8; color:rgba(28,26,23,0.5);">Maharashtra Medical Council<br>Reg. No. 2021076814</p>
         </div>
 
         <div style="flex:1 1 240px; min-width:min(100%,220px);">
           <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:24px;">Availability</span>
           <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(21px,2.2vw,28px); line-height:1.4; font-weight:400;">Consultations are scheduled strictly by prior appointment.</p>
-          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; line-height:1.8; color:rgba(28,26,23,0.5);">Monday &mdash; Friday<br>10:00 AM &ndash; 7:00 PM</p>
+          <p style="margin:20px 0 0; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; line-height:1.8; color:rgba(28,26,23,0.5);">Monday &mdash; Saturday<br>11:00 AM &ndash; 7:00 PM<br>Online consultations available.</p>
         </div>
 
         <div style="flex:1.3 1 320px; min-width:min(100%,280px);">
           <span style="display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(28,26,23,0.45); margin-bottom:24px;">Schedule a Consultation</span>
-          <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-size:20px; line-height:1.5; color:#1C1A17;">To schedule a clinical consultation or treatment with Dr. Dipti Mathias at Good Genes Clinic, please contact us directly.</p>
+          <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-size:20px; line-height:1.5; color:#1C1A17;">To schedule a consultation or treatment with Dr. Dipti Mathias at Good Genes Clinic, please contact us directly.</p>
         </div>
       </div>
 

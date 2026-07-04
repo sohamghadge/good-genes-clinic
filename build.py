@@ -80,7 +80,7 @@ new_sections = """
              <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.2em; opacity:0.4;">AFTER</span>
           </div>
         </div>
-        <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-style:italic; text-align:center;">Case 02 &mdash; Hair Regrowth</p>
+        <p style="margin:0; font-family:'Cormorant Garamond', Georgia, serif; font-size:22px; font-style:italic; text-align:center;">Case 02 &mdash; Skinbooster + Botox</p>
       </div>
     </div>
   </section>
